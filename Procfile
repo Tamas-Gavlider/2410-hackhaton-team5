@@ -1,0 +1,1 @@
+web: gunicorn job_app_tracker.wsgi:application
