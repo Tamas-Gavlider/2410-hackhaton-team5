@@ -30,8 +30,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    'job-application-tracker-team5-0fc397c8056e.herokuapp.com/',
+    'localhost'
+]
 
 # Application definition
 
@@ -44,6 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'job_applications',
+
+    # Third party apps
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +60,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Add the account middleware for allauth:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'job_app_tracker.urls'
@@ -73,6 +82,21 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'job_app_tracker.wsgi.application'
 
