@@ -7,3 +7,40 @@ __pycache__/
 node_modules/
 .github/
 cloudinary_python.txt
+
+# VS Code files for those working on multiple tools
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Virtualenv
+wop/
+wop/*
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# General macOS
+.DS_Store
+.AppleDouble
+.LSOverride
