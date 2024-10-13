@@ -39,3 +39,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# General macOS
+.DS_Store
+.AppleDouble
+.LSOverride
