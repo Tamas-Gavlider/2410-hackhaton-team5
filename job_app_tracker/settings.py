@@ -30,7 +30,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['job-application-tracker-team5-0fc397c8056e.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = [
+    'job-application-tracker-team5-0fc397c8056e.herokuapp.com/',
+    'localhost'
+]
 
 # Application definition
 
@@ -88,6 +91,12 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'job_app_tracker.wsgi.application'
 
