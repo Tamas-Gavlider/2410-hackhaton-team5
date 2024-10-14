@@ -1,10 +1,9 @@
-et tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 document.addEventListener("DOMContentLoaded", function () {
     renderTasks();
 });
 
-// Function to render tasks on the board
 function renderTasks() {
     const columns = ['newApp', 'in-progress', 'done'];
 
@@ -34,7 +33,7 @@ function createTaskElement(content, id) {
     return task;
 }
 
-// Function to delete a task
+
 function deleteTask(taskId) {
     tasks = tasks.filter(task => task.id !== taskId);
     updateLocalStorage();
@@ -63,25 +62,23 @@ function addTask() {
     const taskTitle = document.getElementById('taskTitle').value.trim();
     const taskDescription = document.getElementById('taskDescription').value.trim();
 
-    console.log("Adding Task:", taskTitle, taskDescription); // Debug log
-
     if (taskTitle && taskDescription) {
         const newTask = {
             id: "task-" + Date.now(),
-            content: `${taskTitle}: ${taskDescription}`, // Custom content
-            status: 'newApp' // Default status
+            content: `${taskTitle}: ${taskDescription}`, 
+            status: 'newApp' 
         };
         tasks.push(newTask);
         updateLocalStorage();
         renderTasks();
-        $('#taskModal').modal('hide'); // Close the modal
-        document.getElementById('taskForm').reset(); // Reset the form
+        $('#taskModal').modal('hide'); 
+        document.getElementById('taskForm').reset(); 
     } else {
         console.log("Please fill in both fields."); // Debug log
     }
 }
 
-// Function to update task status when moved to another column
+
 function updateTaskStatus(taskId, newStatus) {
     tasks = tasks.map(task => {
         if (task.id === taskId) {
@@ -92,10 +89,10 @@ function updateTaskStatus(taskId, newStatus) {
     updateLocalStorage();
 }
 
-// Function to update local storage with current tasks
+
 function updateLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Event listener for the form submission
+
 document.getElementById('submitApp').addEventListener('click', addTask);

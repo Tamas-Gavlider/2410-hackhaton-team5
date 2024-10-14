@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
@@ -8,23 +9,52 @@
   <div class="column" id="newApp" ondrop="drop(event, 'newApp')" ondragover="allowDrop(event)">
     <h2>New</h2>
     <hr>
-    <div class="task-container"></div>
+    <div class="task-container">
+      {% for application in applications %}
+        {% if application.status == "Draft" %}
+          <div class="task" id="task-{{ application.id }}">
+            {{ application.position }}: {{ application.job_description }}
+            <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 
   <div class="column" id="in-progress" ondrop="drop(event, 'in-progress')" ondragover="allowDrop(event)">
     <h2>In Progress</h2>
     <hr>
-    <div class="task-container"></div>
+    <div class="task-container">
+      {% for application in applications %}
+        {% if application.status == "Under Review" %}
+          <div class="task" id="task-{{ application.id }}">
+            {{ application.position }}: {{ application.job_description }}
+            <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
+
   <div class="column" id="done" ondrop="drop(event, 'done')" ondragover="allowDrop(event)">
     <h2>Closed</h2>
     <hr>
-    <div class="task-container"></div>
+    <div class="task-container">
+      {% for application in applications %}
+        {% if application.status == "Offer accepted" %}
+          <div class="task" id="task-{{ application.id }}">
+            {{ application.position }}: {{ application.job_description }}
+            <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
+    Add Application
+  </button>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
-  Add Application
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
@@ -46,10 +76,11 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="submitApp">Add Application</button>
       </div>
     </div>
   </div>
 </div>
+
 {% endblock content %}
