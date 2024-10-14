@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center mx-auto pb-2">
+      <h1 class="mx-auto mb-4 p-2">Frequently Asked Questions</h1>
+  </div>
+
+  <div class="col mb-3">
+      <div>
+          <div class="accordion" id="faqAccordion">
+              {% for faq in faqs %}
+
+              <!-- FAQ Item -->
+              <div class="card">
+                  <div class="card-header" id="faqHeading{{ faq.id }}" data-toggle="collapse"
+                      data-target="#faqCollapse{{ faq.id }}" aria-expanded="true"
+                      aria-controls="faqCollapse{{ faq.id }}" role="button">
+                      <h2 class="mb-0 d-flex justify-content-between align-items-center faq-link btn">
+                              {{ faq.question }}
+                          <small><i class="fa-solid fa-chevron-down"></i></small>
+                      </h2>
+                  </div>
+                  <div id="faqCollapse{{ faq.id }}" class="collapse" aria-labelledby="faqHeading{{ faq.id }}"
+                      data-parent="#faqAccordion">
+                      <div class="card-body pb-2 pl-2">
+                          {{ faq.answer }}
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+{% endblock content %}
