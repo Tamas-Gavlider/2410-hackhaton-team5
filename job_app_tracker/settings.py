@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = [
-    'job-application-tracker-team5-0fc397c8056e.herokuapp.com/',
+    'job-application-tracker-team5-0fc397c8056e.herokuapp.com',
     'localhost'
 ]
 
