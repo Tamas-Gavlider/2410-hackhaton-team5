@@ -62,8 +62,6 @@ INSTALLED_APPS = [
     # Third party apps
     'allauth',
     'allauth.account',
-    'crispy_forms',
-    'crispy_bootstrap5',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
