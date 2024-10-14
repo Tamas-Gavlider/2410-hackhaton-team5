@@ -19,11 +19,6 @@ class JobApplication(models.Model):
         ('Contract', 'Contract'),
         ('Temporary', 'Temporary'),
         ('Internship', 'Internship'),
-        ('Freelance', 'Freelance'),
-        ('Office-based', 'Office-based'),
-        ('Remote', 'Remote'),
-        ('Hybrid', 'Hybrid'),
-        ('Project-based', 'Project-based'),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='job_applications')

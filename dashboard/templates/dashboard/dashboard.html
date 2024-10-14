@@ -4,6 +4,61 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center display-6">Dashboard</h2>
+      <hr>
+      <!-- Filter Form -->
+      <form method="get">
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+          <option value="">All</option>
+          {% for value, display in status_choices %}
+          <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ display }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="employment_type">Employment Type:</label>
+        <select name="employment_type" id="employment_type">
+          <option value="">All</option>
+          {% for value, display in employment_type_choices %}
+          <option value="{{ value }}" {% if request.GET.employment_type == value %}selected{% endif %}>{{ display }}
+          </option>
+          {% endfor %}
+        </select>
+
+        <button type="submit">Filter</button>
+      </form>
+
+      <!-- Job Applications Table -->
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th>Employment Type</th>
+            <th><a href="?sort_by=draft_created&direction={{ new_direction }}">Draft Created</a></th>
+            <th><a href="?sort_by=application_date&direction={{ new_direction }}">Application Date</a></th>
+            <th><a href="?sort_by=application_deadline&direction={{ new_direction }}">Application Deadline</a></th>
+            <th><a href="?sort_by=interview_date&direction={{ new_direction }}">Interview Date</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for application in job_applications %}
+          <tr>
+            <td>{{ application.company_name }}</td>
+            <td>{{ application.position }}</td>
+            <td>{{ application.status }}</td>
+            <td>{{ application.employment_type }}</td>
+            <td>{{ application.draft_created }}</td>
+            <td>{{ application.application_date|default:"No date set" }}</td>
+            <td>{{ application.application_deadline|default:"No date set" }}</td>
+            <td>{{ application.interview_date|default:"No date set" }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
