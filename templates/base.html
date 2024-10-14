@@ -25,67 +25,57 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow py-3" aria-label="Main navigation">
       <div class="container-fluid">
-        <a class="" href="{% url 'home' %}"
-          aria-label="Track My Job Home">
-          <img src="{% static 'images/logo.png' %}" alt="Track My Job Logo" class="logo d-inline-block align-text-top">
-          Track My Job
+        <a class="logo-container text-decoration-none" href="{% url 'home' %}" aria-label="Track My Job Home">
+          <img src="{% static 'images/logo.png' %}" alt="Track My Job Logo" class="logo d-inline-block">
+          <span class="logo-text">Track My Job</span>
         </a>
-        <button class="navbar-toggler navbar-toggler-sm" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
-                href="{% url 'home' %}" aria-label="Home page">Home</a>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" href="{% url 'home' %}" aria-label="Home page">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == job_applications_url %}active" aria-current="page{% endif %}"
-                href="{% url 'job_applications' %}" aria-label="My Applications">My Applications</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == job_applications_url %}active" aria-current="page{% endif %}" href="{% url 'job_applications' %}" aria-label="My Applications">My Applications</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == dashboard_url %}active" aria-current="page{% endif %}"
-                href="#" aria-label="Dashboard">Dashboard</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == dashboard_url %}active" aria-current="page{% endif %}" href="#" aria-label="Dashboard">Dashboard</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
-                href="{% url 'contact' %}" aria-label="Contact page">Contact</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}" href="{% url 'contact' %}" aria-label="Contact page">Contact</a>
             </li>
-            <li class="nav-item"></li>
-              <a class="nav-link {% if request.path == faq_url %}active" aria-current="page{% endif %}"
-                href="{% url 'faq' %}" aria-label="Frequently Asked Questions">FAQ</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == faq_url %}active" aria-current="page{% endif %}" href="{% url 'faq' %}" aria-label="Frequently Asked Questions">FAQ</a>
             </li>
-            <li class="nav-item"></li>
-              <a class="nav-link {% if request.path == privacy_policy_url %}active" aria-current="page{% endif %}"
-                href="{% url 'privacy_policy' %}" aria-label="Privacy Policy">Privacy Policy</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == privacy_policy_url %}active" aria-current="page{% endif %}" href="{% url 'privacy_policy' %}" aria-label="Privacy Policy">Privacy Policy</a>
             </li>
             {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
-                href="{% url 'account_logout' %}" aria-label="Logout">Logout</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="Logout">Logout</a>
             </li>
             {% else %}
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}"
-                href="{% url 'account_signup' %}" aria-label="Register">Register</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}" aria-label="Register">Register</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}"
-                href="{% url 'account_login' %}" aria-label="Login">Login</a>
+            <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}" aria-label="Login">Login</a>
             </li>
             {% endif %}
           </ul>
         </div>
       </div>
     </nav>
+    
 
     {% if user.is_authenticated %}
-    <p class="opacity-75 text-end m-3">You are logged in as {{ user }}</p>
+    <p class="user-status opacity-75 text-end m-3">You are logged in as {{ user }}</p>
     {% else %}
-    <p class="opacity-75 text-end m-3">You are not logged in</p>
+    <p class="user-status opacity-75 text-end m-3">You are not logged in</p>
     {% endif %}
   </header>
 
@@ -94,7 +84,7 @@
     <!--Content goes here-->
     {% endblock content %}
   </main>
-  <script src="{% static 'js/kanban.js'%}"
+  <script src="{% static 'js/kanban.js'%}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>
