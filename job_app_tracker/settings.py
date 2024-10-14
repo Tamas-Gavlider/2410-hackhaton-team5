@@ -19,6 +19,7 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +29,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') == 'True'
+# DEBUG = os.getenv('DEBUG') == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'job-application-tracker-team5-0fc397c8056e.herokuapp.com',
@@ -47,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'job_applications',
+    'contact',
+    'dashboard',
 
     # Third party apps
     'allauth',
@@ -72,7 +76,7 @@ ROOT_URLCONF = 'job_app_tracker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,7 +110,8 @@ WSGI_APPLICATION = 'job_app_tracker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+# DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = 'postgres://ubbjrtrfj30:knCr9Q4mWWPB@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/koala_chip_slept_963172'
 DATABASES = {
         'default': dj_database_url.parse(DATABASE_URL)
     }
