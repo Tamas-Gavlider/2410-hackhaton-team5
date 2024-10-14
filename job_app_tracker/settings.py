@@ -32,7 +32,8 @@ DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = [
     'job-application-tracker-team5-0fc397c8056e.herokuapp.com',
-    'localhost'
+    'localhost',
+    '8000-violaberg-2410hackhaton-y04fb4dtnra.ws.codeinstitute-ide.net',
 ]
 
 # Application definition
