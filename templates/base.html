@@ -54,6 +54,14 @@
               <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
                 href="{% url 'contact' %}" aria-label="Contact page">Contact</a>
             </li>
+            <li class="nav-item"></li>
+              <a class="nav-link {% if request.path == faq_url %}active" aria-current="page{% endif %}"
+                href="#" aria-label="Frequently Asked Questions">FAQ</a>
+            </li>
+            <li class="nav-item"></li>
+              <a class="nav-link {% if request.path == my_applications_url %}active" aria-current="page{% endif %}"
+                href="#" aria-label="Privacy Policy">Privacy Policy</a>
+            </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
