@@ -15,6 +15,7 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 from pathlib import Path
 from dotenv import load_dotenv
+import env
 
 load_dotenv()
 
@@ -31,12 +32,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
-# DEBUG = True
 
 ALLOWED_HOSTS = [
     'job-application-tracker-team5-0fc397c8056e.herokuapp.com',
-    'localhost',
-    '8000-violaberg-2410hackhaton-y04fb4dtnra.ws.codeinstitute-ide.net',
+    'localhost'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -172,7 +171,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'BASE_DIR/static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
