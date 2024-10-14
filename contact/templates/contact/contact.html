@@ -1,9 +1,36 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div class="container">
   <div class="row">
+    <div class="text-center container">
+      <header class="mt-4">
+          <h1>Contact Us</h1>
+      </header>
+      <div class="row mt-2">
+          <div class="col-md-12">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed sit amet nisl sit amet libero interdum feugiat ut a odio. Proin tempor, orci vel pellentesque vehicula, eros elit blandit justo, vel sodales nulla ipsum non libero.
+                Curabitur eget libero quis urna hendrerit sollicitudin. Nullam ac elit vel justo varius volutpat. Aliquam erat volutpat. Ut ac magna vitae nisl viverra aliquam. Etiam faucibus lorem eu velit commodo, at elementum odio vulputate.
+                Quisque vitae ligula ut arcu laoreet sodales. Praesent imperdiet ipsum vitae sem tempus, vel lacinia quam iaculis. Vestibulum in eros orci. Cras varius orci id ligula malesuada, sed facilisis eros viverra. Integer dignissim tellus et sapien aliquet, sed fermentum lacus fermentum.
+              </p>
+          </div>
+      </div>
+      <!--Contact Form-->
+      <div class="row">
+          <div class="col col-md-10 col-lg-8 col-xl-6 mx-auto">
+              <form class="p-2" method="post" action="{% url 'contact' %}">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <button class="button mt-0 btn" type="submit"
+                      aria-label="Submit button for contact form">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
   </div>
 </div>
 

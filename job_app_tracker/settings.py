@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 import dj_database_url
+from django.contrib.messages import constants as messages
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -38,6 +39,11 @@ ALLOWED_HOSTS = [
     '8000-violaberg-2410hackhaton-y04fb4dtnra.ws.codeinstitute-ide.net',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-violaberg-2410hackhaton-y04fb4dtnra.ws.codeinstitute-ide.net',
+    'https://*.herokuapp.com',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'home',
     'job_applications',
     'contact',
@@ -56,6 +64,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -146,6 +157,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -160,3 +180,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASS')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
