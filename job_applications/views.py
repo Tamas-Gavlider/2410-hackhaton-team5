@@ -26,5 +26,31 @@ def edit_application(request, job_id):
 
     return render(request, 'job_applications/edit-application.html', context)
 
-def job_applications(request):
-    return render(request, 'job_applications/job_applications.html')
+
+@login_required
+def add_application(request):
+    if request.method == 'POST':
+        form = JobApplicationForm(request.POST)
+        if form.is_valid():
+            job_application = form.save(commit=False)
+            job_application.user = request.user
+            job_application.save()
+            return redirect('home')  # Temporarily until dashboard is ready !!!
+    else:
+        form = JobApplicationForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'job_applications/add-application.html', context)
+
+
+@login_required
+def delete_application(request, job_id):
+
+    job = get_object_or_404(JobApplication, id=job_id, user=request.user)
+
+    job.delete()
+
+    return redirect('home')  # Update this to your dashboard or list view when ready
