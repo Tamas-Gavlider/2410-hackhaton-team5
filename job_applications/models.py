@@ -33,7 +33,7 @@ class JobApplication(models.Model):
     salary = models.CharField(max_length=255, blank=True, null=True)
     employment_type = models.CharField(max_length=50, choices=EMPLOYMENT_TYPES, default='Full time')
     draft_created = models.DateTimeField(auto_now_add=True)
-    application_date = models.DateField()
+    application_date = models.DateField(blank=True, null=True)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Draft')
     job_description = models.TextField(blank=True, null=True)
     application_deadline = models.DateField(blank=True, null=True)
