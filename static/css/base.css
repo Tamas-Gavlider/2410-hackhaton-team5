@@ -1,0 +1,65 @@
+:root {
+  --light-orange: #c1884e;
+  --bright-orange: #bf6e15;
+  --light-turqouise: #698c8e;
+  --dark-turqouise: #305f6d;
+  --light-gray: #f8f9fa;
+  --charcoal: #263037;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;
+  height: -webkit-fill-available;
+  scrollbar-width: none;
+  width: -webkit-fill-available;
+}
+
+body {
+  color: var(--charcoal);
+  font-family: "Lato", serif;
+}
+
+h1, h2, h3,
+.logo-text {
+  color: var(--dark-turqouise);
+  font-family: "Poppins", serif;
+}
+
+.nav-link {
+  color: var(--dark-turqouise);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--bright-orange);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 4.5rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.logo-text:hover {
+  color: var(--bright-orange)!important;
+}
+
+.user-status  {
+  color: var(--dark-turqouise);
+}
