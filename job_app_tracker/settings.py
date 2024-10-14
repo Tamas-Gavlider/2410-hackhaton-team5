@@ -15,8 +15,10 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 from pathlib import Path
 from dotenv import load_dotenv
-import env
+# import env
 
+# Load .env file only if DJANGO_DEVELOPMENT is true
+# if os.getenv('DJANGO_DEVELOPMENT') == 'True':
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
