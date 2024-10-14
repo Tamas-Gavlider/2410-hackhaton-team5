@@ -1,10 +1,55 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<div class="head">
+  <h1>Applications</h1>
+</div>
+<div class="board">
+  <div class="column" id="newApp" ondrop="drop(event, 'newApp')" ondragover="allowDrop(event)">
+    <h2>New</h2>
+    <hr>
+    <div class="task-container"></div>
+  </div>
 
-<div class="container">
-  <div class="row">
+  <div class="column" id="in-progress" ondrop="drop(event, 'in-progress')" ondragover="allowDrop(event)">
+    <h2>In Progress</h2>
+    <hr>
+    <div class="task-container"></div>
+  </div>
+  <div class="column" id="done" ondrop="drop(event, 'done')" ondragover="allowDrop(event)">
+    <h2>Closed</h2>
+    <hr>
+    <div class="task-container"></div>
   </div>
 </div>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
+  Add Application
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="taskModalLabel">Add New Application</h5>
+      </div>
+      <div class="modal-body">
+        <form id="taskForm">
+          <div class="form-group">
+            <label for="taskTitle">Job Position</label>
+            <input type="text" class="form-control" id="taskTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="taskDescription">Description</label>
+            <textarea class="form-control" id="taskDescription" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="submitApp">Add Application</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock content %}

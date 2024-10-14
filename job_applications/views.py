@@ -25,3 +25,6 @@ def edit_application(request, job_id):
     }
 
     return render(request, 'job_applications/edit-application.html', context)
+
+def job_applications(request):
+    return render(request, 'job_applications/job_applications.html')
