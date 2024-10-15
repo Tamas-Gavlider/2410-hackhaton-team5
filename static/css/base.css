@@ -92,6 +92,7 @@ textarea {
 /* Buttons */
 /* Style taken from https://uiverse.io/faxriddin20/tall-kangaroo-61 */
 .primary-btn {
+  align-content: center;
   background-color: var(--bright-orange);
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
@@ -101,11 +102,11 @@ textarea {
     rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   border: none;
   cursor: pointer;
-  height: 45px;
+  height: 50px;
   color: var(--light-gray);
   font-family: "Poppins", serif;
   transition: all 0.3s ease;
-  width: 120px;
+  width: 160px;
 }
 .primary-btn:active {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
@@ -118,6 +119,7 @@ textarea {
 }
 
 .secondary-btn {
+  align-content: center;
   background-color: var(--dark-turqouise);
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
@@ -127,11 +129,11 @@ textarea {
     rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   border: none;
   cursor: pointer;
-  height: 45px;
+  height: 50px;
   color: var(--light-gray);
   font-family: "Poppins", serif;
   transition: all 0.3s ease;
-  width: 120px;
+  width: 160px;
 }
 .secondary-btn:active {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,

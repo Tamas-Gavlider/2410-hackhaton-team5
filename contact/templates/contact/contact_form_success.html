@@ -3,12 +3,13 @@
 
 {% block content %}
 <div class="container">
-    <div class="text-center">
+    <div class="col-md-12 col-lg-10 col-xl-8 text-center mx-auto mb-2">
         <h1>Your form has been sent successfully</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed sit amet nisl sit amet libero interdum feugiat ut a odio. Proin tempor, orci vel pellentesque vehicula, eros elit blandit justo, vel sodales nulla ipsum non libero.
-            Curabitur eget libero quis urna hendrerit sollicitudin. Nullam ac elit vel justo varius volutpat. Aliquam erat volutpat.</p>
-        <a href="{% url 'home' %}" class="button btn"
-            aria-label="Brings back to home page">Back to Home page</a>
+        <img src="{% static 'images/form-sent.jpg' %}" class="w-75 my-3 rounded-3 shadow" style="filter: brightness(0.8);"
+        alt="" aria-label="Form Sent Successfully">
+        <p>Thank you for getting in touch with us! Your message has been successfully sent, and we will get back to you as soon as possible. We appreciate your interest and look forward to assisting you!</p>
+        <a href="{% url 'home' %}" class="primary-btn button btn"
+            aria-label="Brings back to home page">Back Home</a>
     </div>
 </div>
 {% endblock content %}
