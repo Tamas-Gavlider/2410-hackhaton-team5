@@ -12,7 +12,7 @@ def user_job_applications_view(request):
     user_applications = JobApplication.objects.filter(user=request.user)
 
     context = {
-        'applications': user_applications
+        'applications': user_applications,
     }
 
     return render(request, 'job_applications/job_applications.html', context)

@@ -8,36 +8,40 @@
       <h2 class="text-center display-6">Dashboard</h2>
       <hr>
       <!-- Filter Form -->
-      <form method="get">
-        <label for="status">Status:</label>
-        <select name="status" id="status">
-          <option value="">All</option>
-          {% for value, display in status_choices %}
-          <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ display }}</option>
-          {% endfor %}
-        </select>
-
-        <label for="employment_type">Employment Type:</label>
-        <select name="employment_type" id="employment_type">
-          <option value="">All</option>
-          {% for value, display in employment_type_choices %}
-          <option value="{{ value }}" {% if request.GET.employment_type == value %}selected{% endif %}>{{ display }}
-          </option>
-          {% endfor %}
-        </select>
-
-        <button type="submit">Filter</button>
-      </form>
-      <div>
-        <span>Total applications:</span>
-        <span>{{ total_applications }}</span>
-      </div>
-      <div>
-        <span>Total filtered:</span>
-        <span>{{ total_applications_filtered }}</span>
+      <div class="d-flex gap-3 align-items-center p-3">
+        <form method="get">
+          <label for="status">Status:</label>
+          <select name="status" id="status">
+            <option value="">All</option>
+            {% for value, display in status_choices %}
+            <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ display }}</option>
+            {% endfor %}
+          </select>
+  
+          <label for="employment_type">Employment Type:</label>
+          <select name="employment_type" id="employment_type">
+            <option value="">All</option>
+            {% for value, display in employment_type_choices %}
+            <option value="{{ value }}" {% if request.GET.employment_type == value %}selected{% endif %}>{{ display }}
+            </option>
+            {% endfor %}
+          </select>
+  
+          <button class="btn btn-secondary" type="submit">Filter</button>
+        </form>
+        
+        <div>
+          <span>Total applications:</span>
+          <span>{{ total_applications }}</span>
+        </div>
+        <div>
+          <span>Total filtered:</span>
+          <span>{{ total_applications_filtered }}</span>
+        </div>
+        <div><a class="btn btn-secondary" href="{% url 'add_application' %}">Add New</a></div>
       </div>
       <!-- Job Applications Table -->
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>Company Name</th>
@@ -61,7 +65,7 @@
             <td>{{ application.application_date|default:"No date set" }}</td>
             <td>{{ application.application_deadline|default:"No date set" }}</td>
             <td>{{ application.interview_date|default:"No date set" }}</td>
-            <td><a href="{% url 'edit_application' application.id %}">Edit</a></td>
+            <td><a class="btn btn-secondary" href="{% url 'edit_application' application.id %}">Edit</a></td>
             <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
                 data-bs-target="#deleteModal{{ application.id }}">
                 Delete
