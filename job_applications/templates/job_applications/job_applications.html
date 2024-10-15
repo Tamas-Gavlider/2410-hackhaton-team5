@@ -2,57 +2,61 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="head">
-  <h1>Applications</h1>
-</div>
-<div class="board">
-  <div class="column" id="newApp" ondrop="drop(event, 'newApp')" ondragover="allowDrop(event)">
-    <h2>New</h2>
-    <hr>
-    <div class="task-container">
-      {% for application in applications %}
-        {% if application.status == "Draft" %}
-          <div class="task" id="task-{{ application.id }}">
-            {{ application.position }}: {{ application.job_description }}
-            <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-10 col-xl-8 text-center mx-auto mb-2">
+      <h1>Applications</h1>
+    <div class="board">
+      <div class="column shadow my-2" id="newApp" ondrop="drop(event, 'newApp')" ondragover="allowDrop(event)">
+        <h2>New</h2>
+        <hr>
+        <div class="task-container">
+          {% for application in applications %}
+            {% if application.status == "Draft" %}
+              <div class="task" id="task-{{ application.id }}">
+                {{ application.position }}: {{ application.job_description }}
+                <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
 
-  <div class="column" id="in-progress" ondrop="drop(event, 'in-progress')" ondragover="allowDrop(event)">
-    <h2>In Progress</h2>
-    <hr>
-    <div class="task-container">
-      {% for application in applications %}
-        {% if application.status == "Under Review" %}
-          <div class="task" id="task-{{ application.id }}">
-            {{ application.position }}: {{ application.job_description }}
-            <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
+      <div class="column shadow my-2" id="in-progress" ondrop="drop(event, 'in-progress')" ondragover="allowDrop(event)">
+        <h2>In Progress</h2>
+        <hr>
+        <div class="task-container">
+          {% for application in applications %}
+            {% if application.status == "Under Review" %}
+              <div class="task" id="task-{{ application.id }}">
+                {{ application.position }}: {{ application.job_description }}
+                <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
 
-  <div class="column" id="done" ondrop="drop(event, 'done')" ondragover="allowDrop(event)">
-    <h2>Closed</h2>
-    <hr>
-    <div class="task-container">
-      {% for application in applications %}
-        {% if application.status == "Offer accepted" %}
-          <div class="task" id="task-{{ application.id }}">
-            {{ application.position }}: {{ application.job_description }}
-            <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
-          </div>
-        {% endif %}
-      {% endfor %}
+      <div class="column shadow my-2" id="done" ondrop="drop(event, 'done')" ondragover="allowDrop(event)">
+        <h2>Closed</h2>
+        <hr>
+        <div class="task-container">
+          {% for application in applications %}
+            {% if application.status == "Offer accepted" %}
+              <div class="task" id="task-{{ application.id }}">
+                {{ application.position }}: {{ application.job_description }}
+                <span class="delete-btn" onclick="deleteTask('{{ application.id }}')">❌</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <button type="button" class="primary-btn button shadow mt-2 mb-3 btn" data-bs-toggle="modal" data-bs-target="#taskModal">
+        Add Application
+      </button>
+    </div>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
-    Add Application
-  </button>
 </div>
 
 
@@ -76,8 +80,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="submitApp">Add Application</button>
+        <button type="button" class="secondary-btn button shadow mt-2 mb-3 btn" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="primary-btn button shadow mt-2 mb-3 btn" id="submitApp">Add Application</button>
       </div>
     </div>
   </div>
