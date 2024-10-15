@@ -25,8 +25,13 @@ body {
   font-family: "Lato", serif;
 }
 
+main {
+  min-height: calc(100vh - 50px);
+}
+
 h1, h2, h3,
-.logo-text {
+.logo-text,
+.form-label {
   color: var(--dark-turqouise);
   font-family: "Poppins", serif;
 }
@@ -39,6 +44,11 @@ h1, h2, h3,
 
 .nav-link:hover {
   color: var(--bright-orange);
+}
+
+.nav-link.active {
+  color: var(--light-orange)!important;
+  font-weight: 700;
 }
 
 .logo-container {
@@ -62,4 +72,30 @@ h1, h2, h3,
 
 .user-status  {
   color: var(--dark-turqouise);
+}
+
+/* Contact page */
+.contact-form {
+  background: var(--light-gray);
+}
+
+.form-label {
+  font-weight: 400;
+}
+
+input,
+textarea {
+  outline: 1px solid var(--light-gray);
+  outline-width: thin;
+}
+
+/* Button */
+.primary-btn {
+  background-color: var(--bright-orange);
+  font-family: "Poppins", serif;
+  font-weight: 500;
+}
+
+.primary-btn:hover {
+  background-color: var(--light-orange);
 }
