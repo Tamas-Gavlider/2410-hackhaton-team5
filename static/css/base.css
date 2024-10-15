@@ -89,13 +89,76 @@ textarea {
   outline-width: thin;
 }
 
-/* Button */
-.primary-btn {
-  background-color: var(--bright-orange);
+/* FAQ */
+.card-header {
+  background-color: rgba(238, 210, 183, 0.8);
   font-family: "Poppins", serif;
-  font-weight: 500;
+}
+
+.card {
+  --bs-card-border-color: rgb(238, 210, 183)!important;
+}
+
+.card-body {
+  background-color: var(--light-gray);
+}
+
+.fa-chevron-down {
+  color: var(--dark-turqouise);
+}
+
+/* Buttons */
+/* Style taken from https://uiverse.io/faxriddin20/tall-kangaroo-61 */
+.primary-btn {
+  align-content: center;
+  background-color: var(--bright-orange);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  color: var(--light-gray);
+  font-family: "Poppins", serif;
+  transition: all 0.3s ease;
+  width: 160px;
+}
+.primary-btn:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .primary-btn:hover {
-  background-color: var(--light-orange);
+  background-color: var(--dark-turqouise);
+  color: var(--light-gray);
+}
+
+.secondary-btn {
+  align-content: center;
+  background-color: var(--dark-turqouise);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  color: var(--light-gray);
+  font-family: "Poppins", serif;
+  transition: all 0.3s ease;
+  width: 160px;
+}
+.secondary-btn:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.secondary-btn:hover {
+  background-color: var(--bright-orange);
+  color: var(--light-gray);
 }
