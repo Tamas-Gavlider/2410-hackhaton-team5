@@ -1,0 +1,298 @@
+:root {
+  --light-orange: #c1884e;
+  --bright-orange: #bf6e15;
+  --light-turqouise: #698c8e;
+  --dark-turqouise: #305f6d;
+  --light-gray: #f8f9fa;
+  --charcoal: #263037;
+  --red: #9A3B29;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;
+  height: -webkit-fill-available;
+  scrollbar-width: none;
+  width: -webkit-fill-available;
+}
+
+body {
+  color: var(--charcoal);
+  font-family: "Lato", serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  min-height: calc(100vh - 50px);
+}
+
+h1, h2, h3, h4, h5,
+.logo-text,
+.form-label,
+label {
+  color: var(--dark-turqouise);
+  font-family: "Poppins", serif;
+}
+
+.nav-link {
+  color: var(--dark-turqouise);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--bright-orange);
+}
+
+.nav-link.active {
+  color: var(--light-orange)!important;
+  font-weight: 700;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 4.5rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.logo-text:hover {
+  color: var(--bright-orange)!important;
+}
+
+.user-status  {
+  color: var(--dark-turqouise);
+}
+
+/* Contact page */
+.contact-form {
+  background: var(--light-gray);
+}
+
+.form-label {
+  font-weight: 400;
+}
+
+input,
+textarea {
+  outline: 1px solid var(--light-gray);
+  outline-width: thin;
+}
+
+/* FAQ */
+.card-header {
+  background-color: rgba(238, 210, 183, 0.8);
+  font-family: "Poppins", serif;
+}
+
+.card {
+  --bs-card-border-color: rgb(238, 210, 183)!important;
+}
+
+.card-body {
+  background-color: var(--light-gray);
+}
+
+.fa-chevron-down {
+  color: var(--dark-turqouise);
+}
+
+/* Dashboard */
+.chart  {
+  background-color: var(--light-gray);
+  margin: 1rem;
+}
+
+.dash-table {
+  background-color: var(--light-gray);
+  margin: 0 auto;
+  padding: 10px;
+  text-align: left;
+}
+
+.dash-table thead {
+  border-bottom: 1px solid var(--light-orange);
+}
+
+.dash-table tbody tr {
+  border-bottom: 1px solid var(--light-turqouise);
+}
+
+.dash-table tbody td, .dash-table thead th {
+  padding: 10px;
+}
+
+.dash-table thead th,
+.table-link {
+  color: var(--dark-turqouise);
+  text-decoration: none;
+}
+
+.empty-row {
+  height: 20px;
+  background-color: var(--light-gray);
+}
+
+#dash-btn {
+  width: 80px;
+}
+
+.total {
+  color: var(--bright-orange);
+  font-family: "Poppins", serif;
+}
+
+select#employment_type,
+select#status {
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+/* Applications */
+.application-form {
+  background-color: var(--light-gray);
+}
+
+/* Buttons */
+/* Style taken from https://uiverse.io/faxriddin20/tall-kangaroo-61 */
+.primary-btn {
+  align-content: center;
+  background-color: var(--bright-orange);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  color: var(--light-gray);
+  font-family: "Poppins", serif;
+  transition: all 0.3s ease;
+  width: 160px;
+}
+.primary-btn:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.primary-btn:hover {
+  background-color: var(--dark-turqouise);
+  color: var(--light-gray);
+}
+
+.secondary-btn {
+  align-content: center;
+  background-color: var(--dark-turqouise);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  color: var(--light-gray);
+  font-family: "Poppins", serif;
+  transition: all 0.3s ease;
+  width: 160px;
+}
+.secondary-btn:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.secondary-btn:hover {
+  background-color: var(--bright-orange);
+  color: var(--light-gray);
+}
+
+.delete-btn {
+  align-content: center;
+  background-color: var(--red);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  color: var(--light-gray);
+  font-family: "Poppins", serif;
+  transition: all 0.3s ease;
+  width: 160px;
+}
+
+.delete-btn:active {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.delete-btn:hover {
+  background-color: var(--bright-orange);
+  color: var(--light-gray);
+}
+
+/* Allauth */
+.user-container {
+  background-color: var(--light-gray);
+  max-width: 400px;
+}
+
+.account-link {
+  color: var(--bright-orange);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.account-link:hover {
+  color: var(--dark-turqouise);
+}
+
+.account-p {
+  color: var(--dark-turqouise);
+}
+
+input#id_login,
+input#id_password,
+input#id_password1,
+input#id_password2,
+input#id_username,
+input#id_email {
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Edit Button on job_applications html*/
+
+#newEdit, #pendingEdit, #closedEdit {
+  width: 50px;
+}
