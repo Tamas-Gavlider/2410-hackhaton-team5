@@ -23,15 +23,18 @@ html {
 body {
   color: var(--charcoal);
   font-family: "Lato", serif;
+  margin: 0;
+  padding: 0;
 }
 
 main {
   min-height: calc(100vh - 50px);
 }
 
-h1, h2, h3,
+h1, h2, h3, h5,
 .logo-text,
-.form-label {
+.form-label,
+label {
   color: var(--dark-turqouise);
   font-family: "Poppins", serif;
 }
