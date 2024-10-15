@@ -41,6 +41,9 @@
               <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" href="{% url 'home' %}" aria-label="Home page">Home</a>
             </li>
             <li class="nav-item px-2">
+              <a class="nav-link {% if request.path == dashboard_url %}active" aria-current="page{% endif %}" href="{% url 'job_applications' %}" aria-label="Dashboard">Job Applications</a>
+            </li>
+            <li class="nav-item px-2">
               <a class="nav-link {% if request.path == dashboard_url %}active" aria-current="page{% endif %}" href="{% url 'dashboard' %}" aria-label="Dashboard">Dashboard</a>
             </li>
             <li class="nav-item px-2">

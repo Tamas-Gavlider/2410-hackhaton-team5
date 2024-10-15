@@ -7,6 +7,18 @@ from .forms import JobApplicationForm
 
 
 @login_required
+def user_job_applications_view(request):
+
+    user_applications = JobApplication.objects.filter(user=request.user)
+
+    context = {
+        'applications': user_applications
+    }
+
+    return render(request, 'job_applications/job_applications.html', context)
+
+
+@login_required
 def edit_application(request, job_id):
 
     job = get_object_or_404(JobApplication, pk=job_id, user=request.user)
