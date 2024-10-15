@@ -28,7 +28,14 @@
 
         <button type="submit">Filter</button>
       </form>
-
+      <div>
+        <span>Total applications:</span>
+        <span>{{ total_applications }}</span>
+      </div>
+      <div>
+        <span>Total filtered:</span>
+        <span>{{ total_applications_filtered }}</span>
+      </div>
       <!-- Job Applications Table -->
       <table border="1">
         <thead>
@@ -54,6 +61,31 @@
             <td>{{ application.application_date|default:"No date set" }}</td>
             <td>{{ application.application_deadline|default:"No date set" }}</td>
             <td>{{ application.interview_date|default:"No date set" }}</td>
+            <td><a href="{% url 'edit_application' application.id %}">Edit</a></td>
+            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                data-bs-target="#deleteModal{{ application.id }}">
+                Delete
+              </button></td>
+            <!-- Modal -->
+            <div class="modal fade" id="deleteModal{{ application.id }}" tabindex="-1"
+              aria-labelledby="deleteModalLabel{{ application.id }}" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel{{ application.id }}">Confirm Deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure you want to delete this job application?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <!-- Confirm deletion -->
+                    <a href="{% url 'delete_application' application.id %}" class="btn btn-danger">Delete</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </tr>
           {% endfor %}
         </tbody>

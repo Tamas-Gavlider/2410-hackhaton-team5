@@ -10,6 +10,8 @@ def dashboard(request):
 
     job_applications = JobApplication.objects.filter(user=user)
 
+    total_applications = job_applications.count()
+
     status_filter = request.GET.get('status')
     employment_type_filter = request.GET.get('employment_type')
 
@@ -31,12 +33,15 @@ def dashboard(request):
         new_direction = 'asc'
 
     job_applications = job_applications.order_by(order_by)
+    total_applications_filtered = job_applications.count()
 
     context = {
         'job_applications': job_applications,
         'status_choices': JobApplication.STATUS_CHOICES,
         'employment_type_choices': JobApplication.EMPLOYMENT_TYPES,
         'new_direction': new_direction,
+        'total_applications': total_applications,
+        'total_applications_filtered': total_applications_filtered,
     }
 
     return render(request, 'dashboard/dashboard.html', context)
