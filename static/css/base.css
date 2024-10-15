@@ -116,6 +116,11 @@ textarea {
   background-color: var(--light-gray);
 }
 
+/* Applications */
+.application-form {
+  background-color: var(--light-gray);
+}
+
 /* Buttons */
 /* Style taken from https://uiverse.io/faxriddin20/tall-kangaroo-61 */
 .primary-btn {
