@@ -1,6 +1,8 @@
 from collections import Counter
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from datetime import timedelta
 from job_applications.models import JobApplication
 
 
@@ -19,7 +21,8 @@ def dashboard(request):
         job_applications = job_applications.filter(status=status_filter)
 
     if employment_type_filter:
-        job_applications = job_applications.filter(employment_type=employment_type_filter)
+        job_applications = job_applications.filter(
+            employment_type=employment_type_filter)
 
     # Default sort by draft_created
     sort_by = request.GET.get('sort_by', 'draft_created')
@@ -37,8 +40,19 @@ def dashboard(request):
     total_applications_filtered = job_applications.count()
 
     # Data for Charts
-    status_count = dict(Counter(job_applications.values_list('status', flat=True)))
-    employment_type_count = dict(Counter(job_applications.values_list('employment_type', flat=True)))
+    status_count = dict(
+        Counter(job_applications.values_list('status', flat=True)))
+    employment_type_count = dict(
+        Counter(job_applications.values_list('employment_type', flat=True)))
+
+    # Data for Applications Over Time
+    now = timezone.now()
+    last_week_count = JobApplication.objects.filter(
+        user=user, application_date__gte=now - timedelta(days=7)).count()
+    last_month_count = JobApplication.objects.filter(
+        user=user, application_date__gte=now - timedelta(days=30)).count()
+    last_six_months_count = JobApplication.objects.filter(
+        user=user, application_date__gte=now - timedelta(days=180)).count()
 
     context = {
         'job_applications': job_applications,
@@ -47,8 +61,13 @@ def dashboard(request):
         'new_direction': new_direction,
         'total_applications': total_applications,
         'total_applications_filtered': total_applications_filtered,
-        'status_count': status_count,  # Pass status data to the template
-        'employment_type_count': employment_type_count,  # Pass employment type data to the template
+        'status_count': status_count,
+        'employment_type_count': employment_type_count,
+        'applied_counts': {
+            'last_week': last_week_count,
+            'last_month': last_month_count,
+            'last_six_months': last_six_months_count,
+        },
     }
 
     return render(request, 'dashboard/dashboard.html', context)
