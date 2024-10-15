@@ -4,41 +4,50 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 col-lg-10 col-xl-8 text-center mx-auto mb-2">
+    <div class="col-lg-10 col-xl-8 text-center mx-auto mb-2">
       <h1>Dashboard</h1>
       <!-- Filter Form -->
-      <div class="d-flex gap-3 align-items-center p-3">
-        <form method="get">
-          <label for="status">Status:</label>
-          <select name="status" id="status">
-            <option value="">All</option>
-            {% for value, display in status_choices %}
-            <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ display }}</option>
-            {% endfor %}
-          </select>
-  
-          <label for="employment_type">Employment Type:</label>
-          <select name="employment_type" id="employment_type">
-            <option value="">All</option>
-            {% for value, display in employment_type_choices %}
-            <option value="{{ value }}" {% if request.GET.employment_type == value %}selected{% endif %}>{{ display }}
-            </option>
-            {% endfor %}
-          </select>
-  
-          <button class="secondary-btn button shadow mt-2 mb-3 btn" type="submit">Filter</button>
+    <div class="d-flex flex-column gap-3 align-items-start p-3">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <form method="get" class="d-flex flex-wrap gap-3 align-items-center">
+          <div class="d-flex flex-column">
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+              <option value="">All</option>
+              {% for value, display in status_choices %}
+              <option value="{{ value }}" {% if request.GET.status == value %}selected{% endif %}>{{ display }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="d-flex flex-column">
+            <label for="employment_type">Employment Type:</label>
+            <select name="employment_type" id="employment_type">
+              <option value="">All</option>
+              {% for value, display in employment_type_choices %}
+              <option value="{{ value }}" {% if request.GET.employment_type == value %}selected{% endif %}>{{ display }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <button class="secondary-btn button shadow btn" id="dash-btn" type="submit">Filter</button>
         </form>
-        
+
         <div>
-          <span>Total applications:</span>
-          <span>{{ total_applications }}</span>
+          <a class="primary-btn button shadow btn" href="{% url 'add_application' %}">Add New Job</a>
         </div>
-        <div>
-          <span>Total filtered:</span>
-          <span>{{ total_applications_filtered }}</span>
-        </div>
-        <div><a class="primary-btn button shadow mt-2 mb-3 btn" href="{% url 'add_application' %}">Add New</a></div>
       </div>
+
+      <div>
+        <span class="total">Total applications:</span>
+        <span>{{ total_applications }}</span>
+      </div>
+      <div>
+        <span class="total">Total filtered:</span>
+        <span>{{ total_applications_filtered }}</span>
+      </div>
+    </div>
+
 
       <!-- Dynamic Charts -->
       <div class="row py-3">
@@ -52,60 +61,75 @@
         </div>
       </div>
 
+      <!-- Graph for Applications Over Time -->
+      <div class="chart col-12 col-md-6 rounded-3 shadow p-3">
+        <h4 class="text-center">Job Applications Over Time</h4>
+        <canvas id="applicationsOverTimeChart"></canvas>
+      </div>
+
       <!-- Job Applications Table -->
-      <table>
-        <thead>
-          <tr>
-            <th>Company Name</th>
-            <th>Position</th>
-            <th>Status</th>
-            <th>Employment Type</th>
-            <th><a href="?sort_by=draft_created&direction={{ new_direction }}">Draft Created</a></th>
-            <th><a href="?sort_by=application_date&direction={{ new_direction }}">Application Date</a></th>
-            <th><a href="?sort_by=application_deadline&direction={{ new_direction }}">Application Deadline</a></th>
-            <th><a href="?sort_by=interview_date&direction={{ new_direction }}">Interview Date</a></th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for application in job_applications %}
-          <tr>
-            <td>{{ application.company_name }}</td>
-            <td>{{ application.position }}</td>
-            <td>{{ application.status }}</td>
-            <td>{{ application.employment_type }}</td>
-            <td>{{ application.draft_created }}</td>
-            <td>{{ application.application_date|default:"No date set" }}</td>
-            <td>{{ application.application_deadline|default:"No date set" }}</td>
-            <td>{{ application.interview_date|default:"No date set" }}</td>
-            <td><a class="secondary-btn button shadow mt-2 mb-3 btn" href="{% url 'edit_application' application.id %}">Edit</a></td>
-            <td><button type="button" class="delete-btn button shadow mt-2 mb-3 btn" data-bs-toggle="modal"
-                data-bs-target="#deleteModal{{ application.id }}">
-                Delete
-              </button></td>
-            <!-- Modal -->
-            <div class="modal fade" id="deleteModal{{ application.id }}" tabindex="-1"
-              aria-labelledby="deleteModalLabel{{ application.id }}" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel{{ application.id }}">Confirm Deletion</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Are you sure you want to delete this job application?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="secondary-btn button shadow mt-2 mb-3 btn" data-bs-dismiss="modal">Cancel</button>
-                    <!-- Confirm deletion -->
-                    <a href="{% url 'delete_application' application.id %}" class="delete-btn button shadow mt-2 mb-3 btn">Delete</a>
+          <div class="row">
+            <div class="col mx-auto">
+          <table class="dash-table rounded-3 shadow my-3">
+            <thead class="p-2">
+              <tr class="p-2">
+                <th class="p-2">Company Name</th>
+                <th>Position</th>
+                <th>Status</th>
+                <th class="p-2">Employment Type</th>
+                <th><a class="table-link" href="?sort_by=draft_created&direction={{ new_direction }}">Draft Created</a></th>
+                <th><a class="table-link" href="?sort_by=application_date&direction={{ new_direction }}">Application Date</a></th>
+                <th><a class="table-link" href="?sort_by=application_deadline&direction={{ new_direction }}">Application Deadline</a></th>
+                <th><a class="table-link" href="?sort_by=interview_date&direction={{ new_direction }}">Interview Date</a></th>
+              </tr>
+            </thead>
+            <tbody class="p-3">
+              {% for application in job_applications %}
+              <tr>
+                <td>{{ application.company_name }}</td>
+                <td>{{ application.position }}</td>
+                <td>{{ application.status }}</td>
+                <td>{{ application.employment_type }}</td>
+                <td>{{ application.draft_created }}</td>
+                <td>{{ application.application_date|default:"No date set" }}</td>
+                <td>{{ application.application_deadline|default:"No date set" }}</td>
+                <td>{{ application.interview_date|default:"No date set" }}</td>
+                <td><a class="secondary-btn button shadow mt-2 mb-3 btn" id="dash-btn" href="{% url 'edit_application' application.id %}">Edit</a></td>
+                <td><button type="button" class="delete-btn button shadow mt-2 mb-3 btn" id="dash-btn" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal{{ application.id }}">
+                    Delete
+                  </button></td>
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal{{ application.id }}" tabindex="-1"
+                  aria-labelledby="deleteModalLabel{{ application.id }}" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel{{ application.id }}">Confirm Deletion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Are you sure you want to delete this job application?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="secondary-btn button shadow mt-2 mb-3 btn" data-bs-dismiss="modal">Cancel</button>
+                        <!-- Confirm deletion -->
+                        <a href="{% url 'delete_application' application.id %}" class="delete-btn button shadow mt-2 mb-3 btn">Delete</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" class="empty-row"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -145,6 +169,43 @@
     type: 'doughnut',
     data: employmentTypeData
   });
+
+  // Chart for Job Applications Over Time
+var applicationsOverTimeData = {
+    labels: ['Last Week', 'Last Month', 'Last 6 Months'],
+    datasets: [{
+        label: 'Number of Applications',
+        data: [
+            {{ applied_counts.last_week }},
+            {{ applied_counts.last_month }},
+            {{ applied_counts.last_six_months }}
+        ],
+        backgroundColor: ['#c1884e', '#bf6e15', '#698c8e'],
+    }]
+};
+
+var ctx3 = document.getElementById('applicationsOverTimeChart').getContext('2d');
+var applicationsOverTimeChart = new Chart(ctx3, {
+    type: 'line',
+    data: applicationsOverTimeData,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Number of Applications'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Time Period'
+                }
+            }
+        }
+    }
+});
 </script>
 
 {% endblock content %}

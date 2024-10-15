@@ -32,7 +32,7 @@ main {
   min-height: calc(100vh - 50px);
 }
 
-h1, h2, h3, h5,
+h1, h2, h3, h4, h5,
 .logo-text,
 .form-label,
 label {
@@ -114,6 +114,52 @@ textarea {
 /* Dashboard */
 .chart  {
   background-color: var(--light-gray);
+  margin: 1rem;
+}
+
+.dash-table {
+  background-color: var(--light-gray);
+  margin: 0 auto;
+  padding: 10px;
+  text-align: left;
+}
+
+.dash-table thead {
+  border-bottom: 1px solid var(--light-orange);
+}
+
+.dash-table tbody tr {
+  border-bottom: 1px solid var(--light-turqouise);
+}
+
+.dash-table tbody td, .dash-table thead th {
+  padding: 10px;
+}
+
+.dash-table thead th,
+.table-link {
+  color: var(--dark-turqouise);
+  text-decoration: none;
+}
+
+.empty-row {
+  height: 20px;
+  background-color: var(--light-gray);
+}
+
+#dash-btn {
+  width: 80px;
+}
+
+.total {
+  color: var(--bright-orange);
+  font-family: "Poppins", serif;
+}
+
+select#employment_type,
+select#status {
+  border-radius: 8px;
+  padding: 0.5rem;
 }
 
 /* Applications */
