@@ -165,3 +165,43 @@ textarea {
   background-color: var(--bright-orange);
   color: var(--light-gray);
 }
+
+/* Allauth */
+.user-container {
+  background-color: var(--light-gray);
+  max-width: 400px;
+}
+
+.account-link {
+  color: var(--bright-orange);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.account-link:hover {
+  color: var(--dark-turqouise);
+}
+
+.account-p {
+  color: var(--dark-turqouise);
+}
+
+input#id_login,
+input#id_password,
+input#id_password1,
+input#id_password2,
+input#id_username,
+input#id_email {
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+}
