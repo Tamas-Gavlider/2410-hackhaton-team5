@@ -5,6 +5,27 @@ The live deployed site can be found [here](https://job-application-tracker-team5
 
 ## Contents 
 
+- [Agile Develipment](#agile-development)
+- [User Experience (UX)](#user-experienceux)
+  - [User Stories](#user-stories)
+- [Design](#design)
+  - [Colour Scheme](#colour-scheme)
+  - [Wireframe](#wireframe)
+  - [Typography](#typography)
+  - [Features](#features)
+    - [Home](#home)
+    - [Job Applications](#job-applications)
+    - [Dashboard](#dashboard)
+    - [Contact](#contact)
+    - [FAQ](#faq)
+    - [Privacy Policy](#privacy-policy)
+    - [Register](#register)
+    - [Login](#login)
+    - [Future Implementations](#future-implementations)
+- [Technologies,Languages & Programs used](#technologieslanguages--programs-used)
+- [Deployment & Local Development](#deployment--local-development)
+  - [Local Deployment](#local-deployment)
+  
 ## Agile Development
 
 The project was developed using Agile principles throughout. User stories were prioritized using MoSCoW, and the Minimum Viable Product (MVP) was identified for early deployment.
@@ -49,7 +70,7 @@ Poppins from Google Fonts was chosen to ensure the text is easy to read. Its let
 
 ### Features
 
-All pages feature a fully responsive navbar that transforms into a hamburger menu on smaller screens.<br>
+All pages feature a fully responsive navbar that transforms into a hamburger menu on smaller screens and a [favicon](static/images/apple-touch-icon.png) in the browser tab.<br>
 Navbar if user logged in<br>
 ![Logged in](docs/screenshots/logged-in-header.png)
 Navbar if user is not registered/logged in<br>
@@ -58,25 +79,49 @@ Navbar if user is not registered/logged in<br>
 #### Home
 
 The home page features a welcome message explaining why to choose this tool, along with login and register buttons.
-![home page]()
+![home page](docs/screenshots/home-page.png)
 
 #### Job Applications
 
-The Job Applications page is accessible only to registered and logged-in users. Users can view their job applications, add new ones, or edit existing ones.
+Accessible only to registered and logged-in users. Users can view their job applications, add new ones, or edit existing ones. If users prefer not to use the dashboard, they can easily add their job applications directly on the Job Applications page.
+
 
 #### Dashboard
 
+Accessible only to registered and logged-in users. One of the key component of the application. It not only allows users to add new job applications but also provides a visual overview of their existing ones through various charts. By comparing successful applications with unsuccessful ones, users can gain valuable insights into which roles are the best fit for them.
+
+![Chart1](/docs/screenshots/dashboard-chart-1.png)
+![Chart2](/docs/screenshots/dashboard-chart-2.png)
+![Chart3](/docs/screenshots/dashboard-3.png)
+![Add Applications](/docs/screenshots/dashboard-applications.png)
+
 #### Contact
 
+Users can fill out a contact form to provide feedback on bugs or suggest potential future features.
+
 #### FAQ
+
+The FAQ section addresses the most common user questions. If users don't find the answer they're looking for, they can reach out via the contact form.<br>
+![FAQ](docs/screenshots/faq.png)
 
 #### Privacy Policy
 
 #### Register
 
+New users can register for an account to access and use the application.
+
+![Register](docs/screenshots/registration-page.png)
+
 #### Login
 
+Login page for existing users.
+
+![Login](docs/screenshots/login-page.png)
+
 #### Future Implementations
+
+Integrate the application with LinkedIn APIs, allowing new job applications to automatically flow into the app and appear on the dashboard.<br>
+The application may also be suitable for corporations to track job application records for future employees by implementing automated email notifications whenever the status of an application changes.
 
 ### Technologies,Languages & Programs used
 
@@ -86,11 +131,13 @@ The Job Applications page is accessible only to registered and logged-in users. 
 - Python - The programming language used for the project.
 - Django - The web framework used to build the application.
 - PostgreSQL - The database used to store job application data, user information, and other relevant data for the application.
+- JavaScript - to implement interactive charts on the dashboard for visualizing job application data.
 - GitHub - Web-based platform for version control and collaboration on software projects.
 - VSCode - Free and highly extensible source code editor with built-in features for editing, debugging, and version control integration. It supports various programming languages and is available for multiple platforms.
 - Balsamiq- Used to create wireframes.
 - Google Fonts - Library of free and open-source web fonts.
 - Heroku - Used to deploy the project for hosting and managing the live application.
+- Favicon.io - To create Favicon
 
 ### Deployment & Local Development
 
