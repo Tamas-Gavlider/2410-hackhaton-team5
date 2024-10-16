@@ -6,10 +6,8 @@
   <div class="row">
     <div class="col text-center mx-auto mb-2">
       <h1>Dashboard</h1>
-      <!-- Filter Form -->
-    <div class="d-flex flex-column gap-3 align-items-start p-3">
-      <div class="d-flex justify-content-between align-items-center w-100">
-        <form method="get" class="d-flex flex-wrap gap-3 align-items-center">
+      <div class="d-flex flex-column align-items-center p-3">
+        <form method="get" class="d-flex flex-wrap gap-3 align-items-center justify-content-center mb-3">
           <div class="d-flex flex-column">
             <label for="status">Status:</label>
             <select name="status" id="status">
@@ -19,7 +17,7 @@
               {% endfor %}
             </select>
           </div>
-
+      
           <div class="d-flex flex-column">
             <label for="employment_type">Employment Type:</label>
             <select name="employment_type" id="employment_type">
@@ -29,42 +27,42 @@
               {% endfor %}
             </select>
           </div>
-
-          <button class="secondary-btn button shadow btn" id="dash-btn" type="submit">Filter</button>
+      
+          <button class="secondary-btn button shadow btn mt-3" id="dash-btn" type="submit">Filter</button>
         </form>
-
+      
         <div>
-          <a class="primary-btn button shadow btn" href="{% url 'add_application' %}">Add New Job</a>
+          <span class="total">Total applications:</span>
+          <span>{{ total_applications }}</span>
+        </div>
+        <div>
+          <span class="total">Total filtered:</span>
+          <span>{{ total_applications_filtered }}</span>
+        </div>
+        <div></div>
+          <a class="primary-btn button shadow btn mt-3" href="{% url 'add_application' %}">Add New Job</a>
         </div>
       </div>
-
-      <div>
-        <span class="total">Total applications:</span>
-        <span>{{ total_applications }}</span>
-      </div>
-      <div>
-        <span class="total">Total filtered:</span>
-        <span>{{ total_applications_filtered }}</span>
-      </div>
-    </div>
 
 
       <!-- Dynamic Charts -->
-      <div class="row py-3">
-        <div class="chart col-12 col-md-6 rounded-3 shadow p-3">
+      <div class="row justify-content-evenly py-3">
+        <div class="chart col-12 col-md-4 rounded-3 mx-auto shadow p-3">
           <h4 class="text-center">Job Applications by Status</h4>
           <canvas id="statusChart"></canvas>
         </div>
-        <div class="chart col-12 col-md-6 rounded-3 shadow p-3">
+        <div class="chart col-12 col-md-4 rounded-3 mx-auto shadow p-3">
           <h4 class="text-center">Job Applications by Employment Type</h4>
           <canvas id="employmentTypeChart"></canvas>
         </div>
       </div>
 
       <!-- Graph for Applications Over Time -->
-      <div class="chart col-12 col-md-6 rounded-3 shadow p-3">
-        <h4 class="text-center">Job Applications Over Time</h4>
-        <canvas id="applicationsOverTimeChart"></canvas>
+      <div class="row justify-content-evenly py-3">
+        <div class="chart col-12 col-md-4 mx-auto rounded-3 shadow p-3">
+          <h4 class="text-center">Job Applications Over Time</h4>
+          <canvas id="applicationsOverTimeChart"></canvas>
+        </div>
       </div>
 
       <!-- Job Applications Table -->
@@ -94,11 +92,11 @@
                 <td>{{ application.application_date|default:"No date set" }}</td>
                 <td>{{ application.application_deadline|default:"No date set" }}</td>
                 <td>{{ application.interview_date|default:"No date set" }}</td>
-                <td><a class="secondary-btn button shadow mt-2 mb-3 btn" id="dash-btn" href="{% url 'application_detail' application.id %}">View</a></td>
-                <td><button type="button" class="delete-btn button shadow mt-2 mb-3 btn" id="dash-btn" data-bs-toggle="modal"
-                    data-bs-target="#deleteModal{{ application.id }}">
-                    Delete
-                  </button></td>
+                <td><a class="progress-appl-view text-decoration-none fw-bold px-2" href="{% url 'application_detail' application.id %}">View</a></td>
+                <td><a class="delete-appl-view text-decoration-none fw-bold px-2" data-bs-toggle="modal"
+                  data-bs-target="#deleteModal{{ application.id }}">
+                  Delete
+               </a></td>
                 <!-- Modal -->
                 <div class="modal fade" id="deleteModal{{ application.id }}" tabindex="-1"
                   aria-labelledby="deleteModalLabel{{ application.id }}" aria-hidden="true">
@@ -144,7 +142,7 @@
       label: 'Applications',
       // Count of applications per status
       data: Object.values({{ status_count|safe }}),
-      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f8f9fa'],
+      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f2e0bf'],
     }]
   };
   var ctx1 = document.getElementById('statusChart').getContext('2d');
@@ -161,7 +159,7 @@
       label: 'Applications',
       // Count of applications per employment type
       data: Object.values({{ employment_type_count|safe }}),
-      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f8f9fa'],
+      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f2e0bf'],
     }]
   };
   var ctx2 = document.getElementById('employmentTypeChart').getContext('2d');
