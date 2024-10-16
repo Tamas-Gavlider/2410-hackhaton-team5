@@ -290,3 +290,9 @@ input#id_email {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* Edit Button on job_applications html*/
+
+#newEdit, #pendingEdit, #closedEdit {
+  width: 50px;
+}

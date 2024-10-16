@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
@@ -13,44 +12,55 @@
         <hr>
         <div class="task-container">
           {% for application in applications %}
+      <div class="board">
+        <div class="column shadow my-2" id="newApp">
+          <h2>New</h2>
+          <hr>
+          <div class="task-container">
+            {% for application in applications %}
             {% if application.status in '["Draft","Applied"]' %}
-              <div class="task" id="task-{{ application.id }}">
-                <span>Company<br>{{ application.company_name }}</span><br>
-                <span>Position<br>{{ application.position }}</span><br>
-                <span>Status<br>{{application.status}}</span>
-              </div>
+            <div class="task" id="task-{{ application.id }}">
+              <span>Company<br>{{ application.company_name }}</span><br>
+              <span>Position<br>{{ application.position }}</span>
+              <a class="secondary-btn button shadow mt-2 mb-3 btn" id="newEdit"
+                href="{% url 'edit_application' application.id %}">Edit</a>
+            </div>
             {% endif %}
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
-      </div>
 
-      <div class="column shadow my-2" id="in-progress">
-        <h2>In Progress</h2>
-        <hr>
-        <div class="task-container">
-          {% for application in applications %}
+        <div class="column shadow my-2" id="in-progress">
+          <h2>In Progress</h2>
+          <hr>
+          <div class="task-container">
+            {% for application in applications %}
             {% if application.status in '["Under Review","Interview appointed","Interview appointed"]'%}
-              <div class="task" id="task-{{ application.id }}">
-                <span>Company<br>{{ application.company_name }}</span><br>
-                <span>Position<br>{{ application.position }}</span><br>
-                <span>Status<br>{{application.status}}</span>
-              </div>
+            <div class="task" id="task-{{ application.id }}">
+              <span>Company<br>{{ application.company_name }}</span><br>
+              <span>Position<br>{{ application.position }}</span><br>
+              {% if application.id %}
+              <a class="secondary-btn button shadow mt-2 mb-3 btn" id="pendingEdit"
+                href="{% url 'edit_application' application.id %}">Edit</a>
+              {% endif %}
+            </div>
             {% endif %}
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
-      </div>
 
-      <div class="column shadow my-2" id="done" ondrop="drop(event, 'done')" ondragover="allowDrop(event)">
-        <h2>Closed</h2>
-        <hr>
-        <div class="task-container">
-          {% for application in applications %}
+        <div class="column shadow my-2" id="done">
+          <h2>Closed</h2>
+          <hr>
+          <div class="task-container">
+            {% for application in applications %}
             {% if application.status in '["Offer accepted", "Offered","Rejected"]' %}
-              <div class="task" id="task-{{ application.id }}">
-                <span>Company<br>{{ application.company_name }}</span><br>
-                <span>Position<br>{{ application.position }}</span><br>
-                <span>Status<br>{{application.status}}</span>
-              </div>
+            <div class="task" id="task-{{ application.id }}">
+              <span>Company<br>{{ application.company_name }}</span><br>
+              <span>Position<br>{{ application.position }}</span>
+              <a class="secondary-btn button shadow mt-2 mb-3 btn" id="closedEdit"
+                href="{% url 'edit_application' application.id %}">Edit</a>
+            </div>
             {% endif %}
           {% endfor %}
         </div>
@@ -77,12 +87,16 @@
           <div class="form-group">
             <label for="taskDescription">Description</label>
             <textarea class="form-control" id="taskDescription" required></textarea>
+            {% endfor %}
+
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="secondary-btn button shadow mt-2 mb-3 btn" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="primary-btn button shadow mt-2 mb-3 btn" id="submitApp">Add Application</button>
+        </div>
+        <a class="primary-btn button shadow mt-2 mb-3 btn" href="{% url 'add_application' %}">
+          Add Application
+        </a>
+        {% if application.id %}
+        <a class="secondary-btn button shadow mt-2 mb-3 btn" href="{% url 'edit_application' application.id %}">Edit</a>
+        {% endif %}
       </div>
     </div>
   </div>
