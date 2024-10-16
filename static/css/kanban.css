@@ -96,15 +96,16 @@ body {
     border-top: 1px solid var(--light-orange);
 }
 
-/* Media */
-@media (min-width: 1200px) {
+/* Media queries */
+@media only screen and (min-width: 900px) {
     .board {
         align-items: flex-start;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .column {
         flex: 1;
-        max-width: 300px;
+        width: 300px;
+        margin: 0 10px;
     }
 }
