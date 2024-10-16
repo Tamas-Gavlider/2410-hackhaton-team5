@@ -147,8 +147,10 @@ textarea {
   background-color: var(--light-gray);
 }
 
-#dash-btn {
-  width: 80px;
+.delete-appl-view {
+  color: var(--red);
+  cursor: pointer;
+  font-family: "Poppins", serif;
 }
 
 .total {
@@ -295,4 +297,11 @@ input#id_email {
 
 #newEdit, #pendingEdit, #closedEdit {
   width: 50px;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .chart {
+    width: 85%;
+  }
 }
