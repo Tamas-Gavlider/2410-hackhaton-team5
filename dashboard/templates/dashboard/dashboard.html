@@ -6,10 +6,8 @@
   <div class="row">
     <div class="col text-center mx-auto mb-2">
       <h1>Dashboard</h1>
-      <!-- Filter Form -->
-    <div class="d-flex flex-column gap-3 align-items-start p-3">
-      <div class="d-flex justify-content-between align-items-center w-100">
-        <form method="get" class="d-flex flex-wrap gap-3 align-items-center">
+      <div class="d-flex flex-column align-items-center p-3">
+        <form method="get" class="d-flex flex-wrap gap-3 align-items-center justify-content-center mb-3">
           <div class="d-flex flex-column">
             <label for="status">Status:</label>
             <select name="status" id="status">
@@ -19,7 +17,7 @@
               {% endfor %}
             </select>
           </div>
-
+      
           <div class="d-flex flex-column">
             <label for="employment_type">Employment Type:</label>
             <select name="employment_type" id="employment_type">
@@ -29,33 +27,31 @@
               {% endfor %}
             </select>
           </div>
-
-          <button class="secondary-btn button shadow btn" id="dash-btn" type="submit">Filter</button>
+      
+          <button class="secondary-btn button shadow btn mt-3" id="dash-btn" type="submit">Filter</button>
         </form>
-
+      
         <div>
-          <a class="primary-btn button shadow btn" href="{% url 'add_application' %}">Add New Job</a>
+          <span class="total">Total applications:</span>
+          <span>{{ total_applications }}</span>
+        </div>
+        <div>
+          <span class="total">Total filtered:</span>
+          <span>{{ total_applications_filtered }}</span>
+        </div>
+        <div></div>
+          <a class="primary-btn button shadow btn mt-3" href="{% url 'add_application' %}">Add New Job</a>
         </div>
       </div>
-
-      <div>
-        <span class="total">Total applications:</span>
-        <span>{{ total_applications }}</span>
-      </div>
-      <div>
-        <span class="total">Total filtered:</span>
-        <span>{{ total_applications_filtered }}</span>
-      </div>
-    </div>
 
 
       <!-- Dynamic Charts -->
       <div class="row justify-content-evenly py-3">
-        <div class="chart col-12 col-md-4 rounded-3 shadow p-3">
+        <div class="chart col-12 col-md-4 rounded-3 mx-auto shadow p-3">
           <h4 class="text-center">Job Applications by Status</h4>
           <canvas id="statusChart"></canvas>
         </div>
-        <div class="chart col-12 col-md-4 rounded-3 shadow p-3">
+        <div class="chart col-12 col-md-4 rounded-3 mx-auto shadow p-3">
           <h4 class="text-center">Job Applications by Employment Type</h4>
           <canvas id="employmentTypeChart"></canvas>
         </div>
@@ -63,7 +59,7 @@
 
       <!-- Graph for Applications Over Time -->
       <div class="row justify-content-evenly py-3">
-        <div class="chart col-12 col-md-4 rounded-3 shadow p-3">
+        <div class="chart col-12 col-md-4 mx-auto rounded-3 shadow p-3">
           <h4 class="text-center">Job Applications Over Time</h4>
           <canvas id="applicationsOverTimeChart"></canvas>
         </div>

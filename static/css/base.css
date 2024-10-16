@@ -298,3 +298,10 @@ input#id_email {
 #newEdit, #pendingEdit, #closedEdit {
   width: 50px;
 }
+
+/* Media queries */
+@media (max-width: 768px) {
+  .chart {
+    width: 85%;
+  }
+}
