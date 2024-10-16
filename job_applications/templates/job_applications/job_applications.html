@@ -23,7 +23,7 @@
               <span>Company<br>{{ application.company_name }}</span><br>
               <span>Position<br>{{ application.position }}</span>
               <a class="secondary-btn button shadow mt-2 mb-3 btn" id="newEdit"
-                href="{% url 'edit_application' application.id %}">Edit</a>
+                href="{% url 'application_detail' application.id %}">View</a>
             </div>
             {% endif %}
             {% endfor %}
@@ -41,7 +41,7 @@
               <span>Position<br>{{ application.position }}</span><br>
               {% if application.id %}
               <a class="secondary-btn button shadow mt-2 mb-3 btn" id="pendingEdit"
-                href="{% url 'edit_application' application.id %}">Edit</a>
+                href="{% url 'application_detail' application.id %}">View</a>
               {% endif %}
             </div>
             {% endif %}
@@ -59,7 +59,7 @@
               <span>Company<br>{{ application.company_name }}</span><br>
               <span>Position<br>{{ application.position }}</span>
               <a class="secondary-btn button shadow mt-2 mb-3 btn" id="closedEdit"
-                href="{% url 'edit_application' application.id %}">Edit</a>
+                href="{% url 'application_detail' application.id %}">View</a>
             </div>
             {% endif %}
           {% endfor %}
@@ -95,7 +95,7 @@
           Add Application
         </a>
         {% if application.id %}
-        <a class="secondary-btn button shadow mt-2 mb-3 btn" href="{% url 'edit_application' application.id %}">Edit</a>
+        <a class="secondary-btn button shadow mt-2 mb-3 btn" href="{% url 'application_detail' application.id %}">View</a>
         {% endif %}
       </div>
     </div>

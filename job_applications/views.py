@@ -19,6 +19,18 @@ def user_job_applications_view(request):
 
 
 @login_required
+def application_detail(request, job_id):
+
+    job = get_object_or_404(JobApplication, pk=job_id, user=request.user)
+
+    context = {
+        'job': job,
+    }
+
+    return render(request, 'job_applications/view-application.html', context)
+
+
+@login_required
 def edit_application(request, job_id):
 
     job = get_object_or_404(JobApplication, pk=job_id, user=request.user)
