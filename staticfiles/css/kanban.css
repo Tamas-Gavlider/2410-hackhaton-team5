@@ -16,8 +16,6 @@ body {
     width: calc(100% - 30px);
     max-width: 400px;
     background-color: var(--light-gray);
-    border-radius: 10px;
-    padding: 20px;
     box-shadow:
         0px 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -37,10 +35,42 @@ body {
 
 .task {
     background-color: var(--light-gray);
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: move;
+}
+
+.task .field {
+    margin-bottom: 15px;
+}
+
+.task .label {
+    border-bottom: 1px solid var(--light-gray);
+    display: block;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.task .value {
+    display: block;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.appl-title {
+    color: var(--bright-orange);
+    font-size: 1.4rem;
+}
+
+.appl-field {
+    color: var(--dark-turqouise);
+    font-size: 1.2rem;
+}
+
+.appl-subtitle {
+    border-bottom: 1px solid var(--light-orange);
+    font-size: 1.2rem;
 }
 
 .delete-btn {
@@ -53,35 +83,50 @@ body {
 }
 
 #newApp .task {
-    background-color:var(--light-orange);
+    background-color: var(--light-orange);
 }
 
 #in-progress .task {
     background-color: var(--light-turqouise);
-
 }
 
 #done .task {
     background-color: var(--dark-turqouise);
-
 }
 
 .task {
+    cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     color: var(--light-gray);
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 5px;
-    cursor: move;
 }
 
 .tasks-in-btn {
     display: flex;
     justify-content: space-around;
     margin-bottom: 3px;
+}
+
+.new-appl-view {
+    align-self: center;
+    color: var(--dark-turqouise);
+    font-family: "Poppins", serif;
+}
+
+.progress-appl-view {
+    align-self: center;
+    color: var(--bright-orange);
+    font-family: "Poppins", serif;
+}
+
+.closed-appl-view {
+    align-self: center;
+    color: var(--bright-orange);
+    font-family: "Poppins", serif;
 }
 
 .modal-header {
@@ -94,4 +139,22 @@ body {
 
 .modal-footer {
     border-top: 1px solid var(--light-orange);
+}
+
+/* Media queries for larger screens */
+@media only screen and (min-width: 1000px) {
+    .board {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+    }
+    .column {
+        flex: 0 0 30%;
+        max-width: 32%;
+        margin: 0 5px;
+    }
+    .task {
+        width: 100%;
+    }
 }
