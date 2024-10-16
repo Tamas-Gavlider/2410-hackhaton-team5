@@ -43,6 +43,21 @@ body {
     cursor: move;
 }
 
+.appl-title {
+    color: var(--bright-orange);
+    font-size: 1.4rem;
+}
+
+.appl-field {
+    color: var(--dark-turqouise);
+    font-size: 1.2rem;
+}
+
+.appl-subtitle {
+    border-bottom: 1px solid var(--light-orange);
+    font-size: 1.2rem;
+}
+
 .delete-btn {
     float: right;
     cursor: pointer;
