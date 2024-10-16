@@ -1,6 +1,7 @@
 # Track My Job
 
-The live deployed site can be found[Live site](https://job-application-tracker-team5-0fc397c8056e.herokuapp.com/)
+An user-friendly application that helps users efficiently manage and track their job applications. Applying for jobs across multiple platforms can quickly become overwhelming, making it difficult to monitor each application's status. With Track My Job, users can easily keep track of all their job applications in one place. The app provides visual insights, such as pie charts, to display application statistics, helping users evaluate and adjust their job search strategies as needed.<br>
+The live deployed site can be found [here](https://job-application-tracker-team5-0fc397c8056e.herokuapp.com/)
 
 ## Contents 
 
@@ -20,12 +21,10 @@ User Stories were tracked throughout the project as [GitHub issues](https://gith
 
 ![Colour Palette](docs/colours.png)
 
-These colors look fantastic! They have a professional, yet modern vibe.
-
-#F2EBE1 (Off-white) – Great for background elements, keeping things clean and minimal.
-#305F6D (Teal) – Ideal for headers, highlights, or icons to bring focus and contrast.
-#BF6E15 (Orange) – This strong accent color could be used for buttons, call-to-actions, or important highlights to draw attention.
-#C1884E (Light Brown) – A softer tone that would pair well with the orange, maybe for secondary buttons or text.
+#F2EBE1 (Off-white) – Great for background elements, keeping things clean and minimal.<br>
+#305F6D (Teal) – Ideal for headers, highlights, or icons to bring focus and contrast.<br>
+#BF6E15 (Orange) – This strong accent color could be used for buttons, call-to-actions, or important highlights to draw attention.<br>
+#C1884E (Light Brown) – A softer tone that would pair well with the orange, maybe for secondary buttons or text.<br>
 #698C8E (Muted Blue) – A calming color that would work great for less prominent text, borders, or nav/ footer sections.
 
 This palette balances warm and cool tones, making the app feel both welcoming and trustworthy
@@ -50,11 +49,16 @@ Poppins from Google Fonts was chosen to ensure the text is easy to read. Its let
 
 ### Features
 
-All pages feature a fully responsive navbar that transforms into a hamburger menu on smaller screens.
+All pages feature a fully responsive navbar that transforms into a hamburger menu on smaller screens.<br>
+Navbar if user logged in<br>
+![Logged in](docs/screenshots/logged-in-header.png)
+Navbar if user is not registered/logged in<br>
+![Logged out](docs/screenshots/logged-out-header.png)
 
 #### Home
 
 The home page features a welcome message explaining why to choose this tool, along with login and register buttons.
+![home page]()
 
 #### Job Applications
 
