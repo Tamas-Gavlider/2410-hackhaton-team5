@@ -5,6 +5,13 @@
   <div class="row">
     <div class="col-md-12 col-lg-10 col-xl-8 text-center mx-auto mb-2">
       <h1>Applications</h1>
+      <button type="button" class="primary-btn button shadow mt-2 mb-3 btn" data-bs-toggle="modal" data-bs-target="#taskModal">Add New Job</button>
+    <div class="board">
+      <div class="column shadow my-2" id="newApp">
+        <h2>New</h2>
+        <hr>
+        <div class="task-container">
+          {% for application in applications %}
       <div class="board">
         <div class="column shadow my-2" id="newApp">
           <h2>New</h2>
@@ -55,7 +62,33 @@
                 href="{% url 'edit_application' application.id %}">Edit</a>
             </div>
             {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="taskModalLabel">Add New Application</h5>
+      </div>
+      <div class="modal-body">
+        <form id="taskForm">
+          <div class="form-group">
+            <label for="taskTitle">Job Position</label>
+            <input type="text" class="form-control" id="taskTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="taskDescription">Description</label>
+            <textarea class="form-control" id="taskDescription" required></textarea>
             {% endfor %}
+
           </div>
         </div>
         <a class="primary-btn button shadow mt-2 mb-3 btn" href="{% url 'add_application' %}">
