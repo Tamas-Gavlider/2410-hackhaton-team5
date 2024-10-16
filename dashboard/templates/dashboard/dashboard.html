@@ -92,7 +92,7 @@
                 <td>{{ application.application_date|default:"No date set" }}</td>
                 <td>{{ application.application_deadline|default:"No date set" }}</td>
                 <td>{{ application.interview_date|default:"No date set" }}</td>
-                <td><a class="progress-appl-view text-decoration-none fw-bold px-2" id="dash-btn" href="{% url 'application_detail' application.id %}">View</a></td>
+                <td><a class="progress-appl-view text-decoration-none fw-bold px-2" href="{% url 'application_detail' application.id %}">View</a></td>
                 <td><a class="delete-appl-view text-decoration-none fw-bold px-2" data-bs-toggle="modal"
                   data-bs-target="#deleteModal{{ application.id }}">
                   Delete
