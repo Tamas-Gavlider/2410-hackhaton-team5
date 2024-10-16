@@ -147,8 +147,10 @@ textarea {
   background-color: var(--light-gray);
 }
 
-#dash-btn {
-  width: 80px;
+.delete-appl-view {
+  color: var(--red);
+  cursor: pointer;
+  font-family: "Poppins", serif;
 }
 
 .total {

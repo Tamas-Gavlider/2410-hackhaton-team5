@@ -50,21 +50,23 @@
 
 
       <!-- Dynamic Charts -->
-      <div class="row py-3">
-        <div class="chart col-12 col-md-6 rounded-3 shadow p-3">
+      <div class="row justify-content-evenly py-3">
+        <div class="chart col-12 col-md-4 rounded-3 shadow p-3">
           <h4 class="text-center">Job Applications by Status</h4>
           <canvas id="statusChart"></canvas>
         </div>
-        <div class="chart col-12 col-md-6 rounded-3 shadow p-3">
+        <div class="chart col-12 col-md-4 rounded-3 shadow p-3">
           <h4 class="text-center">Job Applications by Employment Type</h4>
           <canvas id="employmentTypeChart"></canvas>
         </div>
       </div>
 
       <!-- Graph for Applications Over Time -->
-      <div class="chart col-12 col-md-6 rounded-3 shadow p-3">
-        <h4 class="text-center">Job Applications Over Time</h4>
-        <canvas id="applicationsOverTimeChart"></canvas>
+      <div class="row justify-content-evenly py-3">
+        <div class="chart col-12 col-md-4 rounded-3 shadow p-3">
+          <h4 class="text-center">Job Applications Over Time</h4>
+          <canvas id="applicationsOverTimeChart"></canvas>
+        </div>
       </div>
 
       <!-- Job Applications Table -->
@@ -94,11 +96,11 @@
                 <td>{{ application.application_date|default:"No date set" }}</td>
                 <td>{{ application.application_deadline|default:"No date set" }}</td>
                 <td>{{ application.interview_date|default:"No date set" }}</td>
-                <td><a class="secondary-btn button shadow mt-2 mb-3 btn" id="dash-btn" href="{% url 'application_detail' application.id %}">View</a></td>
-                <td><button type="button" class="delete-btn button shadow mt-2 mb-3 btn" id="dash-btn" data-bs-toggle="modal"
-                    data-bs-target="#deleteModal{{ application.id }}">
-                    Delete
-                  </button></td>
+                <td><a class="progress-appl-view text-decoration-none fw-bold px-2" id="dash-btn" href="{% url 'application_detail' application.id %}">View</a></td>
+                <td><a class="delete-appl-view text-decoration-none fw-bold px-2" data-bs-toggle="modal"
+                  data-bs-target="#deleteModal{{ application.id }}">
+                  Delete
+               </a></td>
                 <!-- Modal -->
                 <div class="modal fade" id="deleteModal{{ application.id }}" tabindex="-1"
                   aria-labelledby="deleteModalLabel{{ application.id }}" aria-hidden="true">
@@ -144,7 +146,7 @@
       label: 'Applications',
       // Count of applications per status
       data: Object.values({{ status_count|safe }}),
-      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f8f9fa'],
+      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f2e0bf'],
     }]
   };
   var ctx1 = document.getElementById('statusChart').getContext('2d');
@@ -161,7 +163,7 @@
       label: 'Applications',
       // Count of applications per employment type
       data: Object.values({{ employment_type_count|safe }}),
-      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f8f9fa'],
+      backgroundColor: ['#c1884e', '#bf6e15', '#698c8e', '#305f6d', '#f2e0bf'],
     }]
   };
   var ctx2 = document.getElementById('employmentTypeChart').getContext('2d');
