@@ -95,3 +95,16 @@ body {
 .modal-footer {
     border-top: 1px solid var(--light-orange);
 }
+
+/* Media */
+@media (min-width: 1200px) {
+    .board {
+        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .column {
+        flex: 1;
+        max-width: 300px;
+    }
+}
