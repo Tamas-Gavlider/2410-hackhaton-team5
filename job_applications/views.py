@@ -39,7 +39,7 @@ def edit_application(request, job_id):
         form = JobApplicationForm(request.POST, instance=job)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Temporarily until dashboard is ready !!!
+            return redirect('dashboard')  # Temporarily until dashboard is ready !!!
     else:
         form = JobApplicationForm(instance=job)
 
@@ -59,7 +59,7 @@ def add_application(request):
             job_application = form.save(commit=False)
             job_application.user = request.user
             job_application.save()
-            return redirect('home')  # Temporarily until dashboard is ready !!!
+            return redirect('dashboard')
     else:
         form = JobApplicationForm()
 
@@ -77,4 +77,4 @@ def delete_application(request, job_id):
 
     job.delete()
 
-    return redirect('home')  # Update this to your dashboard or list view when ready
+    return redirect('dashboard')  # Update this to your dashboard or list view when ready
