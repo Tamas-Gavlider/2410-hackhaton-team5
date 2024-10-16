@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1 class="mb-4">Job Application Details</h1>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ job.company_name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ job.position }}</h6>
+                    <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+                    <p class="card-text"><strong>Salary:</strong> {{ job.salary }}</p>
+                    <p class="card-text"><strong>Employment Type:</strong> {{ job.employment_type }}</p>
+                    <p class="card-text"><strong>Status:</strong> {{ job.status }}</p>
+                    <p class="card-text"><strong>Application Date:</strong> {{ job.application_date }}</p>
+                    <p class="card-text"><strong>Application Deadline:</strong> {{ job.application_deadline }}</p>
+                    <p class="card-text"><strong>Contact Person:</strong> {{ job.contact_person }}</p>
+                    <p class="card-text"><strong>Contact Email:</strong> {{ job.contact_email }}</p>
+                    <p class="card-text"><strong>Application Method:</strong> {{ job.application_method }}</p>
+                    <p class="card-text"><strong>Interview Date:</strong> {{ job.interview_date }}</p>
+                    <p class="card-text"><strong>Description:</strong></p>
+                    <div>{{ job.job_description|linebreaksbr }}</div>
+                    <p class="card-text"><strong>Notes:</strong></p>
+                    <div>{{ job.notes|linebreaksbr }}</div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-end mt-4">
+                        <a href="{% url 'edit_application' job.id %}" class="btn btn-primary me-2">Edit</a>
+                        <!-- Delete Button triggers modal -->
+                        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete this application?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <!-- Confirm Delete Button -->
+                            <a href="{% url 'delete_application' job.id %}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

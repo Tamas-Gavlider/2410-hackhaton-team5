@@ -94,7 +94,7 @@
                 <td>{{ application.application_date|default:"No date set" }}</td>
                 <td>{{ application.application_deadline|default:"No date set" }}</td>
                 <td>{{ application.interview_date|default:"No date set" }}</td>
-                <td><a class="secondary-btn button shadow mt-2 mb-3 btn" id="dash-btn" href="{% url 'edit_application' application.id %}">Edit</a></td>
+                <td><a class="secondary-btn button shadow mt-2 mb-3 btn" id="dash-btn" href="{% url 'application_detail' application.id %}">View</a></td>
                 <td><button type="button" class="delete-btn button shadow mt-2 mb-3 btn" id="dash-btn" data-bs-toggle="modal"
                     data-bs-target="#deleteModal{{ application.id }}">
                     Delete
