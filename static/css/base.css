@@ -94,12 +94,12 @@ textarea {
 }
 
 /* FAQ */
-.card-header {
+.faq-card-header {
   background-color: rgba(238, 210, 183, 0.8);
   font-family: "Poppins", serif;
 }
 
-.card {
+.faq-card {
   --bs-card-border-color: rgb(238, 210, 183)!important;
 }
 
