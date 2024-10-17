@@ -21,6 +21,7 @@ The live deployed site can be found [here](https://job-application-tracker-team5
     - [Privacy Policy](#privacy-policy)
     - [Register](#register)
     - [Login](#login)
+    - [Team Page](#team-page)
     - [Future Implementations](#future-implementations)
 - [Technologies,Languages & Programs used](#technologieslanguages--programs-used)
 - [Deployment & Local Development](#deployment--local-development)
@@ -127,6 +128,10 @@ New users can register for an account to access and use the application.
 Login page for existing users.
 
 ![Login](docs/screenshots/login-page.png)
+
+#### Team Page
+
+Introduction of team members who worked on this project.
 
 #### Future Implementations
 
