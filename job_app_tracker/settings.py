@@ -39,11 +39,11 @@ DEBUG = os.getenv('DEBUG') == 'True'
 ALLOWED_HOSTS = [
     'job-application-tracker-team5-0fc397c8056e.herokuapp.com',
     'localhost',
-    '8000-violaberg-2410hackhaton-y04fb4dtnra.ws.codeinstitute-ide.net',
+    '8000-violaberg-2410hackhaton-unzrexwrmr4.ws.codeinstitute-ide.net',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-violaberg-2410hackhaton-y04fb4dtnra.ws.codeinstitute-ide.net',
+    'https://8000-violaberg-2410hackhaton-unzrexwrmr4.ws.codeinstitute-ide.net',
     'https://*.herokuapp.com',
 ]
 
