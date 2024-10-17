@@ -11,10 +11,12 @@
           <h1>Welcome to TrackMyJob</h1>
           <p>At Track My Job, we understand that navigating the job application process can be overwhelming. Our platform is designed to simplify your journey, offering you the tools to organize and track your job applications with ease. With our intuitive Kanban-style board, you can easily add and view all your applications at a glance, making it simple to manage your progress. Additionally, our dashboard provides insightful charts that help you analyze and visualize your job search trends, empowering you to make informed decisions. Whether you're searching for your dream job or looking to advance your career, Track My Job will help you stay organized, focused, and motivated. Join us today and take the first step toward achieving your career goals!</p>
       </section>
+      {% if not user.is_authenticated %}
       <a class="primary-btn button shadow mt-2 mb-3 btn" href="{% url 'account_signup' %}"
               aria-label="Sign up button">Sign up</a>
       <a class="secondary-btn button shadow mt-2 mb-3 btn" href="{% url 'account_login' %}"
               aria-label="Log in button">Log in</a>
+      {% endif %}
       
     </div>
   </div>
