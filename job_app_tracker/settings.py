@@ -33,8 +33,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') == 'True'
-# DEBUG = True
+# DEBUG = os.getenv('DEBUG') == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'job-application-tracker-team5-0fc397c8056e.herokuapp.com',
@@ -125,7 +125,6 @@ WSGI_APPLICATION = 'job_app_tracker.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASE_URL = os.getenv('DATABASE_URL')
-# DATABASE_URL = 'postgres://ubbjrtrfj30:knCr9Q4mWWPB@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/koala_chip_slept_963172'
 DATABASES = {
         'default': dj_database_url.parse(DATABASE_URL)
     }
