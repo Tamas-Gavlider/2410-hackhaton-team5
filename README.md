@@ -25,6 +25,7 @@ The live deployed site can be found [here](https://job-application-tracker-team5
 - [Technologies,Languages & Programs used](#technologieslanguages--programs-used)
 - [Deployment & Local Development](#deployment--local-development)
   - [Local Deployment](#local-deployment)
+- [Contributors](#contributors)
   
 ## Agile Development
 
@@ -143,7 +144,8 @@ The application may also be suitable for corporations to track job application r
 - Balsamiq- Used to create wireframes.
 - Google Fonts - Library of free and open-source web fonts.
 - Heroku - Used to deploy the project for hosting and managing the live application.
-- Favicon.io - To create Favicon
+- Favicon.io - To create Favicon.
+- [TermsFeed](https://www.termsfeed.com/privacy-policy-generator/) - to generate privacy policy.
 
 ### Deployment & Local Development
 
@@ -157,3 +159,9 @@ This repository can be cloned and run locally with the following steps:
 - Select repository named: https://github.com/Tamas-Gavlider/2410-hackhaton-team5
 - Click code toggle button and copy the url (https://github.com/Tamas-Gavlider/2410-hackhaton-team5.git).
 - In your IDE, open the terminal and run the git clone command (git clone https://github.com/Tamas-Gavlider/2410-hackhaton-team5.git). The repository will now be cloned in your workspace.
+
+## Contributors
+
+- [Viola Bergere](https://github.com/violaberg) - Frontend Developer / UI/UX Designer 
+- [Mykola Kuievda](https://github.com/Mykola-CI) - Backend Developer
+- [Tamas Gavlider](https://github.com/Tamas-Gavlider) - Job Board page developer and README writer
