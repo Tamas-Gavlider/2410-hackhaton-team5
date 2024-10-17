@@ -17,3 +17,6 @@ def privacy_policy(request):
     """ A view to return the Privacy Policy page"""
 
     return render(request, "home/privacy_policy.html")
+
+def team_page(request):
+    return render(request, "home/team_page.html")

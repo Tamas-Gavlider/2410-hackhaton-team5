@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block content %}
+
+<div class="text-center">
+    <h1>Meet the Team</h1>
+    <h2>Viola Bergere</h2>
+    <p>UI/UX and Frontend Developer</p>
+    <img src="{% static 'images/viola.png'%}" class="img-fluid" alt="Viola">
+</div>
+<br>
+<div class="text-center">
+<h2>Mykola Kuievda</h2>
+<p>Backend Developer</p>
+<img src="{% static 'images/mykola.png'%}" class="img-fluid" alt="Mykola">
+</div>
+<br>
+<div class="text-center">
+<h2>Tamas Gavlider</h2>
+<p>Hackathon Enthusiast and README writer</p>
+<img src="{% static 'images/tamas.png'%}" class="img-fluid" alt="Tamas">
+</div>
+
+{% endblock %}

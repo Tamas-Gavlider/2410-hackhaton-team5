@@ -56,6 +56,9 @@
             <li class="nav-item px-2">
               <a class="nav-link {% if request.path == privacy_policy_url %}active" aria-current="page{% endif %}" href="{% url 'privacy_policy' %}" aria-label="Privacy Policy">Privacy Policy</a>
             </li>
+            <li class="nav-item px-2"></li>
+              <a class="nav-link {% if request.path == team_page_url %}active" aria-current="page{% endif %}" href="{% url 'team_page' %}" aria-label="Team Page">Team Page</a>
+            </li>
             {% if user.is_authenticated %}
             <li class="nav-item px-2">
               <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="Logout">Logout</a>
