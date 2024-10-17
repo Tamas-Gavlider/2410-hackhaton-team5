@@ -93,14 +93,17 @@ Accessible only to registered and logged-in users. Users can view their job appl
 
 Accessible only to registered and logged-in users. One of the key component of the application. It not only allows users to add new job applications but also provides a visual overview of their existing ones through various charts. By comparing successful applications with unsuccessful ones, users can gain valuable insights into which roles are the best fit for them.
 
-![Chart1](/docs/screenshots/dashboard-chart-1.png)
-![Chart2](/docs/screenshots/dashboard-chart-2.png)
-![Chart3](/docs/screenshots/dashboard-3.png)
-![Add Applications](/docs/screenshots/dashboard-applications.png)
+![Chart1](docs/screenshots/dashboard-chart-1.png)
+![Chart2](docs/screenshots/dashboard-chart-2.png)
+![Chart3](docs/screenshots/dashboard-3.png)
+![Add Applications](docs/screenshots/dashboard-applications.png)
 
 #### Contact
 
 Users can fill out a contact form to provide feedback on bugs or suggest potential future features.
+
+![Contact form](docs/screenshots/contact-form.png)
+![Confirmation](docs/screenshots/form-submission-confirmation.png)
 
 #### FAQ
 
