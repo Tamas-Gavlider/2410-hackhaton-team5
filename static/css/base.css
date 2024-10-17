@@ -311,7 +311,7 @@ input#id_email {
       width: 90%;
       overflow-x: hidden;
   }
-  .dash-table th, .dash-table td {
+  th, td {
       font-size: 14px;
   }
   .dash-table tbody td, .dash-table thead th {
