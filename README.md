@@ -25,6 +25,7 @@ The live deployed site can be found [here](https://job-application-tracker-team5
 - [Technologies,Languages & Programs used](#technologieslanguages--programs-used)
 - [Deployment & Local Development](#deployment--local-development)
   - [Local Deployment](#local-deployment)
+- [Contributors](#contributors)
   
 ## Agile Development
 
