@@ -157,3 +157,9 @@ This repository can be cloned and run locally with the following steps:
 - Select repository named: https://github.com/Tamas-Gavlider/2410-hackhaton-team5
 - Click code toggle button and copy the url (https://github.com/Tamas-Gavlider/2410-hackhaton-team5.git).
 - In your IDE, open the terminal and run the git clone command (git clone https://github.com/Tamas-Gavlider/2410-hackhaton-team5.git). The repository will now be cloned in your workspace.
+
+## Contributors
+
+- [Viola Bergere](https://github.com/violaberg)
+- [Mykola Kuievda](https://github.com/Mykola-CI)
+- [Tamas Gavlider](https://github.com/Tamas-Gavlider)
