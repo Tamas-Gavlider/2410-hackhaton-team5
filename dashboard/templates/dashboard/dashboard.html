@@ -66,7 +66,7 @@
       </div>
 
       <!-- Job Applications Table -->
-          <div class="row">
+          <div class="row mx-auto">
             <div class="col mx-auto">
           <table class="dash-table rounded-3 shadow my-3">
             <thead class="p-2">
@@ -74,11 +74,11 @@
                 <th class="p-2">Company Name</th>
                 <th>Position</th>
                 <th>Status</th>
-                <th class="p-2">Employment Type</th>
-                <th><a class="table-link" href="?sort_by=draft_created&direction={{ new_direction }}">Draft Created</a></th>
-                <th><a class="table-link" href="?sort_by=application_date&direction={{ new_direction }}">Application Date</a></th>
-                <th><a class="table-link" href="?sort_by=application_deadline&direction={{ new_direction }}">Application Deadline</a></th>
-                <th><a class="table-link" href="?sort_by=interview_date&direction={{ new_direction }}">Interview Date</a></th>
+                <th class="hide-on-small p-2">Employment Type</th>
+                <th hide-on-small><a class="table-link" href="?sort_by=draft_created&direction={{ new_direction }}">Draft Created</a></th>
+                <th class="hide-on-small"><a class="table-link" href="?sort_by=application_date&direction={{ new_direction }}">Application Date</a></th>
+                <th class="hide-on-small"><a class="table-link" href="?sort_by=application_deadline&direction={{ new_direction }}">Application Deadline</a></th>
+                <th class="hide-on-small"><a class="table-link" href="?sort_by=interview_date&direction={{ new_direction }}">Interview Date</a></th>
               </tr>
             </thead>
             <tbody class="p-3">
@@ -86,12 +86,12 @@
               <tr>
                 <td>{{ application.company_name }}</td>
                 <td>{{ application.position }}</td>
-                <td>{{ application.status }}</td>
-                <td>{{ application.employment_type }}</td>
-                <td>{{ application.draft_created }}</td>
-                <td>{{ application.application_date|default:"No date set" }}</td>
-                <td>{{ application.application_deadline|default:"No date set" }}</td>
-                <td>{{ application.interview_date|default:"No date set" }}</td>
+                <td class="hide-on-small">{{ application.status }}</td>
+                <td class="hide-on-small">{{ application.employment_type }}</td>
+                <td class="hide-on-small">{{ application.draft_created }}</td>
+                <td class="hide-on-small">{{ application.application_date|default:"No date set" }}</td>
+                <td class="hide-on-small">{{ application.application_deadline|default:"No date set" }}</td>
+                <td class="hide-on-small">{{ application.interview_date|default:"No date set" }}</td>
                 <td><a class="progress-appl-view text-decoration-none fw-bold px-2" href="{% url 'application_detail' application.id %}">View</a></td>
                 <td><a class="delete-appl-view text-decoration-none fw-bold px-2" data-bs-toggle="modal"
                   data-bs-target="#deleteModal{{ application.id }}">
