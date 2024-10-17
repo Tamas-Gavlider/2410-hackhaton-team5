@@ -304,4 +304,17 @@ input#id_email {
   .chart {
     width: 85%;
   }
+  .dash-table thead th {
+    padding: 5px;
+  }
+  .dash-table {
+      width: 90%;
+      overflow-x: hidden;
+  }
+  .dash-table th, .dash-table td {
+      font-size: 14px;
+  }
+  .dash-table tbody td, .dash-table thead th {
+      padding: 5px;
+  }
 }

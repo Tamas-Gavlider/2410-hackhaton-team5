@@ -160,26 +160,14 @@ body {
 }
 
 /* Hide columns on smaller screens */
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .hide-on-small {
-      display: none;
+        display: none;
     }
-  
-    /* Make the table full-width on small screens */
-    .dash-table {
-      width: 100%;
-      overflow-x: auto;
-    }
-  
-    /* Adjust padding/margins for better mobile view */
-    .dash-table td, .dash-table th {
-      padding: 0.5rem;
-    }
-  
     /* Optional: Adjust button spacing */
     .progress-appl-view, .delete-appl-view {
-      display: block;
-      margin-top: 5px;
+        display: block;
+        margin-top: 5px;
     }
-  }
+}
   
