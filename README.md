@@ -85,6 +85,8 @@ The home page features a welcome message explaining why to choose this tool, alo
 
 Accessible only to registered and logged-in users. Users can view their job applications, add new ones, or edit existing ones. If users prefer not to use the dashboard, they can easily add their job applications directly on the Job Applications page.
 
+![Job App](/docs/screenshots/job-applications.png)
+![Job view](/docs/screenshots/job-applications_view.png)
 
 #### Dashboard
 
@@ -105,6 +107,10 @@ The FAQ section addresses the most common user questions. If users don't find th
 ![FAQ](docs/screenshots/faq.png)
 
 #### Privacy Policy
+
+Includes standard sections and language used in privacy policies, such as information collection and use, cookies, third-party links, and security measures. 
+
+![Privacy Policy](/docs/screenshots/privacy-policy.png)
 
 #### Register
 
